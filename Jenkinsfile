@@ -11,7 +11,7 @@ pipeline {
         //  }
         stage('Clean'){
            steps{
-               'dotnet clean SportApi.sln --configuration Release'
+               echo 'dotnet clean SportApi.sln --configuration Release'
             }
          }         
         stage('Build'){

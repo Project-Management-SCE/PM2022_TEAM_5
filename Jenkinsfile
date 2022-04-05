@@ -11,12 +11,12 @@ pipeline {
         //  }
         stage('Clean'){
            steps{
-               sh('dotnet clean SportApi.sln --configuration Release', returnStdout: true)
+               sh('dotnet clean SportApi.sln --configuration Release')
             }
          }         
         stage('Build'){
            steps{
-               sh('dotnet build SportApi.sln --configuration Release --no-restore', returnStdout: true)
+               sh('dotnet build SportApi.sln --configuration Release --no-restore')
             }
          }
        /* stage('Test: Unit Test'){

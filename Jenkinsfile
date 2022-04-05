@@ -13,7 +13,7 @@ pipeline {
            steps{
                sh 'dotnet clean SportApi.sln --configuration Release'
             }
-         }
+         }         
         stage('Build'){
            steps{
                sh 'dotnet build SportApi.sln --configuration Release --no-restore'

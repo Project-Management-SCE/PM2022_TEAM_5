@@ -4,11 +4,11 @@ pipeline {
         githubPush()
     }
     stages {
-        stage('Restore packages'){
-           steps{
-               sh 'dotnet restore SportApi.sln'
-            }
-         }
+        // stage('Restore packages'){
+        //    steps{
+        //        sh 'dotnet restore SportApi.sln'
+        //     }
+        //  }
         stage('Clean'){
            steps{
                sh 'dotnet clean SportApi.sln --configuration Release'

@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image mcr.microsoft.com/dotnet/sdk
+            image 'mcr.microsoft.com/dotnet/sdk'
         }
     }
     environment {

@@ -1,11 +1,12 @@
 pipeline {
     agent {
         docker {
-            image 'mcr.microsoft.com/dotnet/sdk:5.0'
+            image 'microsoft.com/dotnet:5.0-sdk'
         }
     }
     environment {
-        dotnet ='C:\\Program Files (x86)\\dotnet\\'
+        // dotnet ='C:\\Program Files (x86)\\dotnet\\'
+        DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
         }
     triggers {
     	 pollSCM 'H * * * *'

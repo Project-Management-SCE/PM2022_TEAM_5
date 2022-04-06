@@ -11,12 +11,12 @@ pipeline {
         //  }
         stage('Clean'){
            steps{
-               sh 'dotnet clean WebApplicatiasdasdon1.sln --configuration Release'
+               sh 'dotnet clean WebApplication1.sln --configuration Release'
             }
          }         
         stage('Build'){
            steps{
-               sh 'dotnet build FlexToEcocash.sln --configuration Release --no-restore'
+               sh 'dotnet build WebApplication1.sln --configuration Release --no-restore'
             }
          }
        /* stage('Test: Unit Test'){

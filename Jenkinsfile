@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            docker pull mcr.microsoft.com/dotnet/sdk
+            pull mcr.microsoft.com/dotnet/sdk
         }
     }
     environment {

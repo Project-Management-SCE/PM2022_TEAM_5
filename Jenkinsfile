@@ -11,7 +11,7 @@ pipeline {
         //  }
         stage('Clean'){
            steps{
-               bat 'dotnet clean WebApplication1.sln --configuration Release'
+               sh 'dotnet clean WebApplication1.sln --configuration Release'
             }
          }         
         stage('Build'){

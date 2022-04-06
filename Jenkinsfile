@@ -12,16 +12,16 @@ pipeline {
         githubPush()
     }
     stages {
-        stage('Restore packages'){
-           steps{
-               sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
-            }
-         }
-        stage('Clean'){
-           steps{
-               sh 'dotnet clean WebApplication1.sln --configuration Release'
-            }
-         }         
+        // stage('Restore packages'){
+        //    steps{
+        //        sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
+        //     }
+        //  }
+        // stage('Clean'){
+        //    steps{
+        //        sh 'dotnet clean WebApplication1.sln --configuration Release'
+        //     }
+        //  }         
         stage('Build'){
            steps{
                sh 'dotnet build WebApplication1.sln --configuration Release --no-restore'

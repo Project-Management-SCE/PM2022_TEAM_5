@@ -24,7 +24,7 @@ pipeline {
         //  }         
         stage('Build'){
            steps{
-               sh 'dotnet build WebApplication1.sln --configuration Release --no-restore'
+               sh 'dotnet build ./WebApplication1/WebApplication1.sln --configuration Release --no-restore'
             }
          }
        /* stage('Test: Unit Test'){

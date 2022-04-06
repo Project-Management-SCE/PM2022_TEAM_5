@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Restore packages'){
            steps{
-               sh 'dotnet ./WebApplication1/WebApplication1.sln'
+               sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
             }
          }
         stage('Clean'){

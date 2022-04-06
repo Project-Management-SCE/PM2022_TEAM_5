@@ -9,11 +9,11 @@ pipeline {
         //        sh 'dotnet restore SportApi.sln'
         //     }
         //  }
-        stage('Clean'){
-           steps{
-               sh 'dotnet clean SportApi.sln --configuration Release'
-            }
-         }         
+        // stage('Clean'){
+        //    steps{
+        //        sh 'dotnet clean SportApi.sln --configuration Release'
+        //     }
+        //  }         
         stage('Build'){
            steps{
                sh('dotnet build SportApi.sln --configuration Release --no-restore')

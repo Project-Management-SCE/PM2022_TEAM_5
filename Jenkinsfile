@@ -1,6 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'mcr.microsoft.com/dotnet/sdk:6.0'
+        }
+    }
+    environment {
+        dotnet ='C:\\Program Files (x86)\\dotnet\\'
+        }
     triggers {
+    	 pollSCM 'H * * * *'
         githubPush()
     }
     stages {

@@ -16,7 +16,7 @@ pipeline {
         //  }         
         stage('Build'){
            steps{
-               sh('dotnet build SportApi.sln --configuration Release --no-restore')
+               sh('dotnet build SportApi.sln')
             }
          }
        /* stage('Test: Unit Test'){

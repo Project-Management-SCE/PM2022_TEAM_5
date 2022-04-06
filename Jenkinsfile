@@ -16,7 +16,7 @@ pipeline {
          }         
         stage('Build'){
            steps{
-               sh 'dotnet build WebApplication1.sln'
+               sh 'dotnet build FlexToEcocash.sln --configuration Release --no-restore'
             }
          }
        /* stage('Test: Unit Test'){

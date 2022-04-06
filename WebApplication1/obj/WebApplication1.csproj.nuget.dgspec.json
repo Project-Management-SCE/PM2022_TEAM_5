@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eliran\\Desktop\\123\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eliran\\Desktop\\123\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eliran\\Desktop\\123\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\Eliran\\Desktop\\123\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\Eliran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eliran\\Desktop\\123\\WebApplication1\\WebApplication1\\obj\\",
+        "outputPath": "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

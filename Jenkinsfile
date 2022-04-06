@@ -16,7 +16,7 @@ pipeline {
         //  }         
         stage('Build'){
            steps{
-               bat 'dotnet build WebApplication1.sln --configuration Release'
+               sh 'dotnet build'
             }
          }
        /* stage('Test: Unit Test'){

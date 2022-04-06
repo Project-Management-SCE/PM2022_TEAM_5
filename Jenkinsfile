@@ -16,7 +16,7 @@ pipeline {
         //  }         
         stage('Build'){
            steps{
-               sh 'dotnet build'
+               sh 'dotnet build WebApplication1'
             }
          }
        /* stage('Test: Unit Test'){

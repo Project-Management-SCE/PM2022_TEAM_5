@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\Eliran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\WebApplication1\\obj\\",
+        "projectPath": "C:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\attia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Eliran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\attia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,6 +43,20 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.11.1, )"
@@ -66,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

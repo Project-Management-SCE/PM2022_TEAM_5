@@ -49,7 +49,6 @@ C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תו�
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\bin\Debug\net5.0\WebApplication1.pdb
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\bin\Debug\net5.0\WebApplication1.Views.dll
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\bin\Debug\net5.0\WebApplication1.Views.pdb
-C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\WebApplication1.csproj.AssemblyReference.cache
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\WebApplication1.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\WebApplication1.AssemblyInfoInputs.cache
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\WebApplication1.AssemblyInfo.cs
@@ -213,3 +212,4 @@ C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תו�
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\Logout.cshtml.g.cs
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\NotAuthorize.cshtml.g.cs
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\UserPanel.cshtml.g.cs
+C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\ChangePassword.cshtml.g.cs

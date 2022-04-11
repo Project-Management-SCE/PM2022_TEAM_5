@@ -51,7 +51,7 @@ namespace WebApplication1.Pages
                     {
                         role = "Vip";
                     }
-                    //CreateRole("Admin");
+                    
                     await signInManager.SignInAsync(user, false);
                     await userManager.AddToRoleAsync(user, role);
                     return RedirectToPage("Index");

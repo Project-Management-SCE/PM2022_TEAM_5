@@ -27,8 +27,15 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            //services.AddDefaultIdentity<ApplicationUser>()
             services.AddDbContext<AuthDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
+
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.LoginPath = "/Login";
+                config.AccessDeniedPath = "/NotAuthorize";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

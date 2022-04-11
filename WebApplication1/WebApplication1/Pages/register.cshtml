@@ -28,6 +28,10 @@
                     <input type="password" asp-for="Model.ConfirmPassword" class="form-control" />
                     <span asp-validation-for="Model.ConfirmPassword" class="text-danger"></span>
                 </div>
+                <div class="mb-3 form-check">
+                    <label class="form-check-label" asp-for="Model.Role">Sign as Vip</label>
+                    <input type="checkbox" asp-for="Model.Role" class="form-check-input" onchange="alert(' 30-day free trial. After your first 30 days, we charge a $10 monthly.\n ');"/>
+                </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-primary">Register</button>
                 </div>

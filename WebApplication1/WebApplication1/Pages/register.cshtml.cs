@@ -11,14 +11,16 @@ namespace WebApplication1.Pages
 {
     public class registerModel : PageModel
     {
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
         [BindProperty]
         public Register Model { get; set; }
 
-        public registerModel(UserManager<IdentityUser>UserManager, SignInManager<IdentityUser> signInManager)
+        public registerModel(UserManager<IdentityUser>UserManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
+            this.roleManager = roleManager; ;
             this.userManager = UserManager;
             this.signInManager = signInManager;
         }
@@ -26,20 +28,32 @@ namespace WebApplication1.Pages
         {
         }
 
+        
+        
+
         public async Task<IActionResult> OnPostAsync()
         {
             if(ModelState.IsValid)
             {
+              
+
                 var user = new IdentityUser()
                 {
                     UserName = Model.Email,
-                    Email = Model.Email,
+                    Email = Model.Email,                    
                 };
 
                 var  result = await userManager.CreateAsync(user, Model.Password);
                 if (result.Succeeded)
                 {
+                    var role = "Standard";
+                    if (Model.Role)
+                    {
+                        role = "Vip";
+                    }
+                    //CreateRole("Admin");
                     await signInManager.SignInAsync(user, false);
+                    await userManager.AddToRoleAsync(user, role);
                     return RedirectToPage("Index");
                 }
                 foreach(var err in result.Errors)

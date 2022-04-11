@@ -16,8 +16,10 @@ namespace WebApplication1.ViewModel
         public string Password { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        [Compare(nameof(Password),ErrorMessage ="Password must be like sasi")]
+        [Compare(nameof(Password),ErrorMessage ="Both's Passwords Must Be Equals!")]
         public string ConfirmPassword { get; set; }
+        
+        public bool Role { get; set; }
 
     }
 }

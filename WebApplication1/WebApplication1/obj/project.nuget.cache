@@ -1,10 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "Q0b0iZPWYuqhhFoZcesVVmTFqT2dwUZpY3uImcjr7H5FU7TXSk+PgQZPZPMYYYyqqNB2b7f3jY+8Jj59lYaPtg==",
+  "dgSpecHash": "MpkxbMkgWUU88xsz8fOX7D4jkW84MSP2ywTEfpjOjQ2eVXYQlI1IN1gRJcd/q7UdrKvFj5DYCDUI32N0JzuCXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Eliran\\Desktop\\לימודים\\שנה ג\\סמסטר ב'\\ניהול תוכנה\\פרויקט\\PM2022_TEAM_5-main\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "E:\\Team5_Project\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Eliran\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\Team5_Project\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

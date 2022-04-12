@@ -1,10 +1,25 @@
 ﻿@page
 @model WebApplication1.Pages.AdminPanelModel
-@{
-}
-<div class="container" mt-5>
-    <div class="row justify-content-center align-items-center" >
+@{ }
 
+
+<div class="container" mt-5>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <a class="btn btn-primary" asp-page="/ChangeEmail">Change Email or Username</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="btn btn-primary" asp-page="/AddUser">Add users And managers</a>
+                </li>
+                <li class="list-group-item">another button</li>
+            </ul>
+            <div class="card-footer">
+                Card footer
+            </div>
+        </div>
         <div class="col-sm-12 col-md-12 col-lg-4">
             <h1 class="mb-3">Add Role</h1>
             <form method="post">
@@ -18,9 +33,10 @@
                 </div>
 
                 <div class="mb-3">
-                    <button type="submit"  asp-page-handler="CreateRole" class="btn btn-primary">Add Role</button>
+                    <button type="submit" asp-page-handler="CreateRole" class="btn btn-primary">Add Role</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+

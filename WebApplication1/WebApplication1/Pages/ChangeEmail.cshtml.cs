@@ -9,15 +9,16 @@ using WebApplication1.ViewModel;
 
 namespace WebApplication1.Pages
 {
-    public class ChangePasswordModel : PageModel
+    public class ChangeEmailModel : PageModel
     {
+
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInMannager;
 
         [BindProperty]
-        public ChangePassword Model { get; set; }
+        public ChangeEmail Model { get; set; }
 
-        public ChangePasswordModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public ChangeEmailModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
             this.signInMannager = signInManager;
@@ -27,7 +28,7 @@ namespace WebApplication1.Pages
         {
         }
 
-        public async Task<IActionResult> OnPostAsync(ChangePassword model)
+        public async Task<IActionResult> OnPostAsync(ChangeEmail model)
         {
             if (ModelState.IsValid)
             {
@@ -35,8 +36,16 @@ namespace WebApplication1.Pages
                 if (user == null)
                 {
                     return Page();
-                }                
-                var result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+                }
+
+                if(!Model.UserName.Equals(""))
+                    user.UserName = model.UserName;
+
+                if(!Model.NewEmail.Equals(""))
+                    user.Email = model.NewEmail;
+
+                var result = await userManager.UpdateAsync(user);
+                //userManager.ChangeEmailAsync(user, model.NewEmail, model.ConfirmEmail);
                 if (!result.Succeeded)
                 {
                     foreach (var err in result.Errors)
@@ -46,11 +55,11 @@ namespace WebApplication1.Pages
                 }
 
                 await signInMannager.RefreshSignInAsync(user);
+                return RedirectToPage("Index");
             }
-            
-            return RedirectToPage("Index");
+
+            return Page();
 
         }
     }
 }
-

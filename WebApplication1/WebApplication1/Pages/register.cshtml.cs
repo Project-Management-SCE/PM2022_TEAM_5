@@ -39,7 +39,7 @@ namespace WebApplication1.Pages
 
                 var user = new IdentityUser()
                 {
-                    UserName = Model.Email,
+                    UserName = Model.UserName,
                     Email = Model.Email,                    
                 };
 

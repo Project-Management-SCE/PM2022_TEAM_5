@@ -213,3 +213,4 @@ C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תו�
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\NotAuthorize.cshtml.g.cs
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\UserPanel.cshtml.g.cs
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\ChangePassword.cshtml.g.cs
+C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\ChangeEmail.cshtml.g.cs

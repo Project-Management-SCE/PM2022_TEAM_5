@@ -9,6 +9,11 @@ namespace WebApplication1.ViewModel
     public class Register
     {
         [Required]
+        [DataType(DataType.Text)]
+        [Display(Name ="User Name")]
+        public string UserName { get; set; }
+
+        [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required]

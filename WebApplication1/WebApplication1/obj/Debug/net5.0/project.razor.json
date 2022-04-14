@@ -12,39 +12,6 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -1300032595,
-        "Kind": "Components.Component",
-        "Name": "WebApplication1.Pages.Home",
-        "AssemblyName": "WebApplication1",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Home"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "WebApplication1.Pages.Home"
-        }
-      },
-      {
-        "HashCode": -466083238,
-        "Kind": "Components.Component",
-        "Name": "WebApplication1.Pages.Home",
-        "AssemblyName": "WebApplication1",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "WebApplication1.Pages.Home"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "WebApplication1.Pages.Home",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 2085601310,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView",
@@ -15650,77 +15617,6 @@
     "CSharpLanguageVersion": 900
   },
   "RootNamespace": "WebApplication1",
-  "Documents": [
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\register.cshtml",
-      "TargetPath": "Pages\\register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\Login.cshtml",
-      "TargetPath": "Pages\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\UserPanel.cshtml",
-      "TargetPath": "Pages\\UserPanel.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\Home.razor",
-      "TargetPath": "Pages\\Home.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\Privacy.cshtml",
-      "TargetPath": "Pages\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\Index.cshtml",
-      "TargetPath": "Pages\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\AdminPanel.cshtml",
-      "TargetPath": "Pages\\AdminPanel.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\Logout.cshtml",
-      "TargetPath": "Pages\\Logout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\Shared\\_Layout.cshtml",
-      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\attia\\Desktop\\TEAM_5\\PM2022_TEAM_5\\WebApplication1\\WebApplication1\\Pages\\NotAuthorize.cshtml",
-      "TargetPath": "Pages\\NotAuthorize.cshtml",
-      "FileKind": "mvc"
-    }
-  ],
+  "Documents": [],
   "SerializationFormat": "0.2"
 }

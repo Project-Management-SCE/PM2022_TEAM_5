@@ -35,19 +35,25 @@ namespace WebApplication1.Pages
         {
             if(ModelState.IsValid)
             {
+              
+
                 var user = new IdentityUser()
                 {
-                    UserName = Model.Email,
-                    Email = Model.Email,
+                    UserName = Model.UserName,
+                    Email = Model.Email,                    
                 };
 
                 var  result = await userManager.CreateAsync(user, Model.Password);
                 if (result.Succeeded)
                 {
-
-                    //CreateRole("Admin");
+                    var role = "Standard";
+                    if (Model.Role)
+                    {
+                        role = "Vip";
+                    }
+                    
                     await signInManager.SignInAsync(user, false);
-                    await userManager.AddToRoleAsync(user, "Admin");
+                    await userManager.AddToRoleAsync(user, role);
                     return RedirectToPage("Index");
                 }
                 foreach(var err in result.Errors)

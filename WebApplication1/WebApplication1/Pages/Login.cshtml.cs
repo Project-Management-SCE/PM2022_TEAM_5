@@ -9,21 +9,29 @@ namespace WebApplication1.Pages
     public class LoginModel : PageModel
     {
         private readonly SignInManager<IdentityUser> signInManager;
+        private readonly UserManager<IdentityUser> userManager;
 
         [BindProperty]
         public Login Model { get; set; }
         public void OnGet()
         {
         }
-        public LoginModel(SignInManager<IdentityUser> signInManager)
+        public LoginModel(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             this.signInManager = signInManager;
+            this.userManager = userManager;
         }
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            var identity = await signInManager.PasswordSignInAsync(Model.Email, Model.Password, Model.RememberMe, false);
+
+            var user = await userManager.FindByNameAsync(Model.EmailOrUserName);
+
+            if (Model.EmailOrUserName.Contains("@"))
+                user = await userManager.FindByEmailAsync(Model.EmailOrUserName);            
+
             if (ModelState.IsValid)
             {
+                var identity = await signInManager.PasswordSignInAsync(user.UserName, Model.Password, Model.RememberMe, false);
                 if (identity.Succeeded)
                 {
                     if (returnUrl == null || returnUrl == "/")

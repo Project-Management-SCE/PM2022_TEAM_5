@@ -21,17 +21,18 @@ namespace WebApplication1.Pages
         {
         }
 
-        
+
         public async Task<IActionResult> OnPostCreateRoleAsync()
         {
-            string r = Request.Form["role"];
-            var isExist = await roleManager.RoleExistsAsync(r);
+            string role = Request.Form["role"];
+            var isExist = await roleManager.RoleExistsAsync(role);
             if (!isExist)
             {
-                var res = await roleManager.CreateAsync(new IdentityRole(r));
-               
+                var res = await roleManager.CreateAsync(new IdentityRole(role));
+
             }
             return RedirectToPage();
-        }
+        }       
+
     }
 }

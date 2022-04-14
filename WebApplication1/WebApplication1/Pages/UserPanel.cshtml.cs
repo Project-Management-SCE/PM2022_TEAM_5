@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApplication1.Pages
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Vip")]
     public class UserPanelModel : PageModel
     {
         public void OnGet()

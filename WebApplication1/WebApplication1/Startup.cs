@@ -27,11 +27,12 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddServerSideBlazor();
             services.AddRazorPages();
+            services.AddHttpClient();
             //services.AddDefaultIdentity<ApplicationUser>()
             services.AddDbContext<AuthDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
-
             services.ConfigureApplicationCookie(config =>
             {
                 config.LoginPath = "/Login";
@@ -45,6 +46,7 @@ namespace WebApplication1
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseWebAssemblyDebugging();
             }
             else
             {
@@ -52,7 +54,7 @@ namespace WebApplication1
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            app.UseBlazorFrameworkFiles();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -66,6 +68,18 @@ namespace WebApplication1
             {
                 endpoints.MapRazorPages();
             });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapFallbackToFile("index.html");
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapBlazorHub();
+            });
+
         }
     }
 }

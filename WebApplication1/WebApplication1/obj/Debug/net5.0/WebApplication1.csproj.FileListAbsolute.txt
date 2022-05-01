@@ -117,7 +117,6 @@ C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תו�
 C:\Users\Eliran\Desktop\לימודים\שנה ג\סמסטר ב'\ניהול תוכנה\פרויקט\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\register.cshtml.g.cs
 C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\appsettings.json
-C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\WebApplication1.StaticWebAssets.xml
 C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\WebApplication1.exe
 C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\WebApplication1.deps.json
 C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\WebApplication1.runtimeconfig.json
@@ -307,3 +306,28 @@ C:\Users\ofir3\OneDrive\שולחן העבודה\project1\PM2022_TEAM_5\WebApplic
 C:\Users\ofir3\OneDrive\שולחן העבודה\project1\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\ref\WebApplication1.dll
 C:\Users\ofir3\OneDrive\שולחן העבודה\project1\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\WebApplication1.pdb
 C:\Users\ofir3\OneDrive\שולחן העבודה\project1\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\AddUser.cshtml.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\ChangeEmail.cshtml.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\ChangePassword.cshtml.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\RestSharp.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugHost.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugHost.runtimeconfig.json
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugProxy.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\BlazorDebugProxy\Microsoft.CodeAnalysis.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.Pdb.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.Rocks.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\BlazorDebugProxy\Newtonsoft.Json.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\RazorDeclaration\Pages\Shared\Components\Home.razor.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\Shared\Components\Home.razor.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\RazorDeclaration\Pages\Shared\Components\_Imports.razor.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\Shared\Components\_Imports.razor.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\RazorDeclaration\Pages\Shared\Components\Loading.razor.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\Shared\Components\Loading.razor.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\WebApplication1.csproj.AssemblyReference.cache

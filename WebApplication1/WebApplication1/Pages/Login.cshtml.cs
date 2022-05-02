@@ -28,7 +28,10 @@ namespace WebApplication1.Pages
 
             if (Model.EmailOrUserName.Contains("@"))
                 user = await userManager.FindByEmailAsync(Model.EmailOrUserName);            
-
+            if (user == null)
+            {
+                return Page();
+            }
             if (ModelState.IsValid)
             {
                 var identity = await signInManager.PasswordSignInAsync(user.UserName, Model.Password, Model.RememberMe, false);

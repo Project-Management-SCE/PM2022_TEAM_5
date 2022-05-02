@@ -82,6 +82,13 @@ using Components;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\Home.razor"
+using WebApplication1.Model;
+
+#line default
+#line hidden
+#nullable disable
     public partial class Home : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -90,22 +97,26 @@ using Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 571 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\Home.razor"
+#line 573 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\Home.razor"
        
-	public dynamic res = null;
-	public dynamic AllGames = new List<dynamic>();
-	public dynamic soccer = new List<dynamic>();
-	public dynamic tennis = new List<dynamic>();
-	public dynamic basketball = new List<dynamic>();
-	public dynamic hockey = new List<dynamic>();
-	public dynamic volleyball = new List<dynamic>();
-	public dynamic handball = new List<dynamic>();
-	public dynamic searchList = new List<dynamic>();
-	private bool loading = true;
-	private string SearchValue = "";
+    public dynamic res = null;
+    public dynamic AllGames = new List<dynamic>();
+    public dynamic soccer = new List<dynamic>();
+    public dynamic tennis = new List<dynamic>();
+    public dynamic basketball = new List<dynamic>();
+    public dynamic hockey = new List<dynamic>();
+    public dynamic volleyball = new List<dynamic>();
+    public dynamic handball = new List<dynamic>();
+    public dynamic searchList = new List<dynamic>();
+    private bool loading = true;
+    private string SearchValue = "";
 
-	private void Search(ChangeEventArgs input)
-	{
+	[Parameter]
+    public string news { get; set; }
+
+
+    private void Search(ChangeEventArgs input)
+    {
 		loading = true;
 		InvokeAsync(StateHasChanged);
 		SearchValue = input.Value.ToString().ToLower();
@@ -138,7 +149,7 @@ using Components;
                 Headers =
                 {
                     { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                    { "X-RapidAPI-Key", "75ea553125msh1f23b4e90772767p149498jsndf0a4b31ce89" },
+                    { "X-RapidAPI-Key", "a3458e64femsh44eef93425c6a0dp15fe88jsne2552c6542e8" },
                 },
             };
 		using (var response = await client.SendAsync(request))
@@ -194,7 +205,7 @@ using Components;
             Headers =
             {
                 { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                { "X-RapidAPI-Key", "75ea553125msh1f23b4e90772767p149498jsndf0a4b31ce89" },
+                { "X-RapidAPI-Key", "a3458e64femsh44eef93425c6a0dp15fe88jsne2552c6542e8" },
             },
         };
         using (var response = await client.SendAsync(request))

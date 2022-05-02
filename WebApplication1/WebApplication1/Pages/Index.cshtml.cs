@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using WebApplication1.Model;
 //using static System.Net.Http.IHttpClientFactory
 //using RestSharp;
 
@@ -19,9 +20,11 @@ namespace WebApplication1.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        public string news;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, NewsContext _n)
         {
+            news = _n.News.ToList<News>()[0].text;
             _logger = logger;
         }
 

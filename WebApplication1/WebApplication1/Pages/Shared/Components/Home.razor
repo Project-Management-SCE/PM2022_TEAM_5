@@ -1,6 +1,8 @@
 ﻿@using Newtonsoft.Json;
 @using Components;
+@using WebApplication1.Model;
 <div class="container mt-3">
+	<marquee>@news</marquee>
   <h2>Sport Api Project</h2>
 	<br />
   <!-- Nav tabs -->
@@ -569,20 +571,24 @@
 
 
 @code {
-	public dynamic res = null;
-	public dynamic AllGames = new List<dynamic>();
-	public dynamic soccer = new List<dynamic>();
-	public dynamic tennis = new List<dynamic>();
-	public dynamic basketball = new List<dynamic>();
-	public dynamic hockey = new List<dynamic>();
-	public dynamic volleyball = new List<dynamic>();
-	public dynamic handball = new List<dynamic>();
-	public dynamic searchList = new List<dynamic>();
-	private bool loading = true;
-	private string SearchValue = "";
+    public dynamic res = null;
+    public dynamic AllGames = new List<dynamic>();
+    public dynamic soccer = new List<dynamic>();
+    public dynamic tennis = new List<dynamic>();
+    public dynamic basketball = new List<dynamic>();
+    public dynamic hockey = new List<dynamic>();
+    public dynamic volleyball = new List<dynamic>();
+    public dynamic handball = new List<dynamic>();
+    public dynamic searchList = new List<dynamic>();
+    private bool loading = true;
+    private string SearchValue = "";
 
-	private void Search(ChangeEventArgs input)
-	{
+	[Parameter]
+    public string news { get; set; }
+
+
+    private void Search(ChangeEventArgs input)
+    {
 		loading = true;
 		InvokeAsync(StateHasChanged);
 		SearchValue = input.Value.ToString().ToLower();
@@ -615,7 +621,7 @@
                 Headers =
                 {
                     { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                    { "X-RapidAPI-Key", "75ea553125msh1f23b4e90772767p149498jsndf0a4b31ce89" },
+                    { "X-RapidAPI-Key", "a3458e64femsh44eef93425c6a0dp15fe88jsne2552c6542e8" },
                 },
             };
 		using (var response = await client.SendAsync(request))
@@ -671,7 +677,7 @@
             Headers =
             {
                 { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                { "X-RapidAPI-Key", "75ea553125msh1f23b4e90772767p149498jsndf0a4b31ce89" },
+                { "X-RapidAPI-Key", "a3458e64femsh44eef93425c6a0dp15fe88jsne2552c6542e8" },
             },
         };
         using (var response = await client.SendAsync(request))

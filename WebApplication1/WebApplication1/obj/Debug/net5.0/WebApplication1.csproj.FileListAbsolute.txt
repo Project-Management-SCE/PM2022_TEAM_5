@@ -331,3 +331,9 @@ C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\
 C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\Shared\Components\Loading.razor.g.cs
 C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\WebApplication1.csproj.AssemblyReference.cache
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\EditNews.cshtml.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\RazorDeclaration\Pages\Shared\Components\EditNews.razor.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\Shared\Components\EditNews.razor.g.cs
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,13 +32,18 @@ namespace WebApplication1
             services.AddRazorPages();
             services.AddHttpClient();
             //services.AddDefaultIdentity<ApplicationUser>()
+            services.AddScoped<NewsService>();
             services.AddDbContext<AuthDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
+            services.AddDbContext<NewsContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
+
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
             services.ConfigureApplicationCookie(config =>
             {
                 config.LoginPath = "/Login";
                 config.AccessDeniedPath = "/NotAuthorize";
             });
+            services.AddRazorPages().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

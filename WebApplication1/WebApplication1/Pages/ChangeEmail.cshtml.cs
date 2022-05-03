@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebApplication1.Model;
 using WebApplication1.ViewModel;
 
 namespace WebApplication1.Pages
@@ -12,13 +13,13 @@ namespace WebApplication1.Pages
     public class ChangeEmailModel : PageModel
     {
 
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInMannager;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInMannager;
 
         [BindProperty]
         public ChangeEmail Model { get; set; }
 
-        public ChangeEmailModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public ChangeEmailModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             this.userManager = userManager;
             this.signInMannager = signInManager;
@@ -38,10 +39,10 @@ namespace WebApplication1.Pages
                     return Page();
                 }
 
-                if(!Model.UserName.Equals(""))
+                if(!Model.UserName.Equals("") && Model.UserName!=null)
                     user.UserName = model.UserName;
 
-                if(!Model.NewEmail.Equals(""))
+                if(!Model.NewEmail.Equals("") && Model.NewEmail != null)
                     user.Email = model.NewEmail;
 
                 var result = await userManager.UpdateAsync(user);

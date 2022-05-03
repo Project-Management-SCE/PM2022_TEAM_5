@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http.Json;
+using WebApplication1.ViewModel;
 
 namespace TestProject
 {
@@ -24,9 +25,9 @@ namespace TestProject
                 {
                     builder.ConfigureServices(services =>
                     {
-                        foreach(var service in services)
+                        foreach (var service in services)
                         {
-                            if(typeof(AuthDbContext) == service.ServiceType)
+                            if (typeof(AuthDbContext) == service.ServiceType)
                             {
                                 services.Remove(service);
                             }
@@ -35,19 +36,25 @@ namespace TestProject
                         {
                             options.UseInMemoryDatabase("TestDb");
                         });
+                    });
                 });
-                });
-            //TestClient = appFactory.CreateClient();
+            TestClient = appFactory.CreateClient();
         }
 
-        //protected async Task AuthenticateAsync()
-        //{
-        //    TestClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", await GetJwtAsync());
-        //}
+        protected async Task AuthenticateAsync()
+        {
+            TestClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", await GetJwtAsync());
+        }
 
-        //private async Task<string> GetJwtAsync()
-        //{
-        //    //var response = TestClient.PostAsJsonAsync(ApiRoutes)
-        //}
+        private async Task<string> GetJwtAsync()
+        {
+            var response = await TestClient.PostAsJsonAsync("https://localhost:44329/Register", new Register
+            {
+                Email = "testc@integration.com",
+                Password = "asdasd!Asd",
+            });
+            var registrationResponse = await response.Content.ReadAsStringAsync();
+            return registrationResponse;
+        }
     }
 }

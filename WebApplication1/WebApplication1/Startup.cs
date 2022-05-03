@@ -31,12 +31,15 @@ namespace WebApplication1
             services.AddServerSideBlazor();
             services.AddRazorPages();
             services.AddHttpClient();
+            services.AddSession();
+            services.AddMemoryCache();
             //services.AddDefaultIdentity<ApplicationUser>()
             services.AddScoped<NewsService>();
-            services.AddDbContext<AuthDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
+            services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
             services.AddDbContext<NewsContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
+            //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             services.ConfigureApplicationCookie(config =>
             {
                 config.LoginPath = "/Login";
@@ -63,7 +66,7 @@ namespace WebApplication1
             app.UseBlazorFrameworkFiles();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthentication();

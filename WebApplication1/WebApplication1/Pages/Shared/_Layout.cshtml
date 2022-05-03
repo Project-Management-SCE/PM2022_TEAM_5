@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
+@using WebApplication1.Model
+
+@inject SignInManager<ApplicationUser> SignInManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +13,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/c4953c17e4.js" crossorigin="anonymous"></script>
-    
+
 </head>
 <body>
     <header>
@@ -27,22 +29,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/UserPanel">User Panel</a>
-                            </li>
-                            
-                           
-                        <div class="navbar-nav flex-grow-1 justify-content-center">
-                            <form class="d-flex ">
-                                <input class="form-control me-2" type="text" placeholder="Search">
-                                <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </form>
-                        </div>
-                        </ul>
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/UserPanel">User Panel</a>
+            </li>
+
+
+            <div class="navbar-nav flex-grow-1 justify-content-center">
+                <form class="d-flex ">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+        </ul>
                         <ul class="navbar-nav d-flex justify-content-center-end ">
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/AdminPanel">Admin Panel</a>
@@ -52,11 +54,9 @@
                                 <button type="submit" class="btn btn-primary" asp-page="=/../Logout" asp-page-handler="Logout">Logout</button>
                             </li>
                             </form>
-                        </ul>
-
-                    }
-                    else
-                    {
+                        </ul> }
+                                    else
+                                    {
                         <ul class="navbar-nav d-flex justify-content-center-end flex-grow-1">
                             <li class="nav-item">
                                 <a class="btn" asp-area="" asp-page="/Register">Register</a>
@@ -65,9 +65,7 @@
                                 <a class="btn" asp-area="" asp-page="/Login">Login</a>
                             </li>
 
-                        </ul>
-
-                    }
+                        </ul>}
 
                 </div>
             </div>

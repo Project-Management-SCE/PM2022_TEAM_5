@@ -82,6 +82,13 @@ using Components;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\ofir3\OneDrive\שולחן העבודה\project1\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\Home.razor"
+using WebApplication1.Model;
+
+#line default
+#line hidden
+#nullable disable
     public partial class Home : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -90,7 +97,7 @@ using Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 572 "C:\Users\ofir3\OneDrive\שולחן העבודה\project1\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\Home.razor"
+#line 573 "C:\Users\ofir3\OneDrive\שולחן העבודה\project1\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\Home.razor"
        
     public dynamic res = null;
     public dynamic AllGames = new List<dynamic>();
@@ -104,91 +111,90 @@ using Components;
     private bool loading = true;
     private string SearchValue = "";
 
-
-    private string text = "News of the website";
+	[Parameter]
+    public string news { get; set; }
 
 
     private void Search(ChangeEventArgs input)
     {
+		loading = true;
+		InvokeAsync(StateHasChanged);
+		SearchValue = input.Value.ToString().ToLower();
 
-        loading = true;
-        InvokeAsync(StateHasChanged);
-        SearchValue = input.Value.ToString().ToLower();
+		searchList = new List<dynamic>();
+		Console.WriteLine(AllGames.Count);
 
-        searchList = new List<dynamic>();
-        Console.WriteLine(AllGames.Count);
+		foreach(var item in AllGames)
+		{
+			if (item.home_team.name.ToString().ToLower().Contains(SearchValue) || item.home_team.name.ToString().ToLower().Contains(SearchValue))
+			{
+				searchList.Add(item);
+				Console.WriteLine(item.home_team.name + " - " + item.away_team.name);
 
-        foreach(var item in AllGames)
-        {
-            if (item.home_team.name.ToString().ToLower().Contains(SearchValue) || item.home_team.name.ToString().ToLower().Contains(SearchValue))
+			}
+		}
+		loading = false;
+		Console.WriteLine(SearchValue + " - " + searchList.Count);
+		InvokeAsync(StateHasChanged);
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+	//loading = true;
+		var client = new HttpClient();
+		var request = new HttpRequestMessage
             {
-                searchList.Add(item);
-                Console.WriteLine(item.home_team.name + " - " + item.away_team.name);
-
-            }
-        }
-        loading = false;
-        Console.WriteLine(SearchValue + " - " + searchList.Count);
-        InvokeAsync(StateHasChanged);
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        //loading = true;
-        var client = new HttpClient();
-        var request = new HttpRequestMessage
-        {
-            Method = HttpMethod.Get,
-            RequestUri = new Uri("https://sportscore1.p.rapidapi.com/events/live?page=1"),
-            Headers =
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://sportscore1.p.rapidapi.com/events/live?page=1"),
+                Headers =
                 {
                     { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                    { "X-RapidAPI-Key", "0c691043e7msh106e05cc05489cep155b38jsnc572122b4dc1" },
+                    { "X-RapidAPI-Key", "a3458e64femsh44eef93425c6a0dp15fe88jsne2552c6542e8" },
                 },
-        };
-        using (var response = await client.SendAsync(request))
-        {
-            response.EnsureSuccessStatusCode();
-            var body = await response.Content.ReadAsStringAsync();
+            };
+		using (var response = await client.SendAsync(request))
+		{
+			response.EnsureSuccessStatusCode();
+			var body = await response.Content.ReadAsStringAsync();
 
 
-            res = JsonConvert.DeserializeObject(body);
+			res = JsonConvert.DeserializeObject(body);
 
 
-            foreach (var item in res.data)
-            {
-                if (item.sport_id == 1)
+			foreach (var item in res.data)
+			{
+				if (item.sport_id == 1)
+					if (item.home_score != null && item.away_score != null) {
+						if (item.home_score.current != null && item.away_score.current != null)
+							soccer.Add(item);
+					}
+				if (item.sport_id == 2)
                     if (item.home_score != null && item.away_score != null) {
-                        if (item.home_score.current != null && item.away_score.current != null)
-                            soccer.Add(item);
-                    }
-                if (item.sport_id == 2)
-                    if (item.home_score != null && item.away_score != null) {
-                        if (item.home_score.current != null && item.away_score.current != null)
-                            tennis.Add(item);
-                    }
+						if (item.home_score.current != null && item.away_score.current != null)
+							tennis.Add(item);
+				}
                 if (item.sport_id == 3)
                     if (item.home_score != null && item.away_score != null) {
-                        if (item.home_score.current != null && item.away_score.current != null)
-                            basketball.Add(item);
-                    }
+						if (item.home_score.current != null && item.away_score.current != null)
+							basketball.Add(item);
+					}
                 if (item.sport_id == 4)
                     if (item.home_score != null && item.away_score != null) {
-                        if (item.home_score.current != null && item.away_score.current != null)
-                            hockey.Add(item);
-                    }
+						if (item.home_score.current != null && item.away_score.current != null)
+							hockey.Add(item);
+					}
                 if (item.sport_id == 5){
-                    if(item.home_score.current != null && item.away_score.current != null)
-                        volleyball.Add(item);
-                }
+					if(item.home_score.current != null && item.away_score.current != null)
+						volleyball.Add(item);
+				}
                 if (item.sport_id == 6)
-                {
+				{
                     if (item.home_score != null && item.away_score != null) {
-                        if (item.home_score.current != null && item.away_score.current != null)
-                            handball.Add(item);
-                    }
-                }
-                AllGames.Add(item);
+						if (item.home_score.current != null && item.away_score.current != null)
+							handball.Add(item);
+					}
+				}
+				AllGames.Add(item);
             }
 
         }
@@ -199,7 +205,7 @@ using Components;
             Headers =
             {
                 { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                { "X-RapidAPI-Key", "0c691043e7msh106e05cc05489cep155b38jsnc572122b4dc1" },
+                { "X-RapidAPI-Key", "a3458e64femsh44eef93425c6a0dp15fe88jsne2552c6542e8" },
             },
         };
         using (var response = await client.SendAsync(request))
@@ -225,14 +231,14 @@ using Components;
                     volleyball.Add(item);
                 if (item.sport_id == 6)
                     handball.Add(item);
-                AllGames.Add(item);
+				AllGames.Add(item);
             }
 
         }
-        loading = false;
+		loading = false;
     }
 
-
+	
 
 
 #line default

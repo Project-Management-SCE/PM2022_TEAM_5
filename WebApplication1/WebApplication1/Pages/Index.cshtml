@@ -11,7 +11,7 @@
 
 
   <div >
-    @(await Html.RenderComponentAsync<WebApplication1.Pages.Shared.Components.Home>(RenderMode.ServerPrerendered))
+    @(await Html.RenderComponentAsync<WebApplication1.Pages.Shared.Components.Home>(RenderMode.ServerPrerendered, new {news = Model.news}))
  </div> 
  
 

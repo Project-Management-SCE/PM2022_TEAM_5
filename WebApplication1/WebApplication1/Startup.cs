@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,15 +31,22 @@ namespace WebApplication1
             services.AddServerSideBlazor();
             services.AddRazorPages();
             services.AddHttpClient();
+            services.AddSession();
+            services.AddMemoryCache();
             //services.AddDefaultIdentity<ApplicationUser>()
-            services.AddDbContext<AuthDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
+            services.AddScoped<NewsService>();
+            services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
             services.AddDbContext<NewsContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
+
+            //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             services.ConfigureApplicationCookie(config =>
             {
                 config.LoginPath = "/Login";
                 config.AccessDeniedPath = "/NotAuthorize";
             });
+            services.AddRazorPages().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +66,7 @@ namespace WebApplication1
             app.UseBlazorFrameworkFiles();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthentication();

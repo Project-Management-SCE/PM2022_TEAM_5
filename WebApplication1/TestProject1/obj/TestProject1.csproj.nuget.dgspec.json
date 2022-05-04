@@ -53,7 +53,7 @@
             },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
-              "version": "[6.0.4, )"
+              "version": "[5.0.7, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",

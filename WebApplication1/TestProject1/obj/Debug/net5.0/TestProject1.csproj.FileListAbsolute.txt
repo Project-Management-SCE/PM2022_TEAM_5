@@ -165,9 +165,3 @@ C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\TestProject
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\TestProject1\obj\Debug\net5.0\ref\TestProject1.dll
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\TestProject1\obj\Debug\net5.0\TestProject1.pdb
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\TestProject1\obj\Debug\net5.0\TestProject1.genruntimeconfig.cache
-C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\TestProject1\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\TestProject1\bin\Debug\net5.0\Microsoft.Extensions.Logging.dll
-C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\TestProject1\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\TestProject1\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
-C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\TestProject1\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
-C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\TestProject1\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

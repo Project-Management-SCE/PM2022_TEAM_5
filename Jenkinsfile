@@ -30,7 +30,7 @@ pipeline {
          }        
        stage('Test: Unit Test'){
            steps {
-                sh 'dotnet test TestProject1/TestProject1.csproj --configuration Release --no-restore'
+                sh 'dotnet test ./WebApplication1/TestProject1/TestProject1.csproj --configuration Release --no-restore'
              }
           }
           /* 

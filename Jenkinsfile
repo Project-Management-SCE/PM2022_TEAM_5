@@ -34,6 +34,16 @@ pipeline {
                 sh 'dotnet test ./WebApplication1/TestProject1/TestProject1.csproj --configuration Release --no-restore'
              }
           }
+        stage('Deploy'){        
+            steps {
+                sh '''
+                    curl https://cli-assets.heroku.com/install.sh | sh;
+                    heroku container:login
+                    heroku container:push web --app sportapisce
+                    heroku container:release web --app sportapisce
+                '''
+            }
+         }
           /* 
         stage('Publish'){
              steps{

@@ -43,7 +43,19 @@ namespace Automation
             //options.AddArgument("--no-sandbox"); // Bypass OS security model
             //options.AddArgument("--whitelisted-ips");
             //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-
+            // Start the child process.
+            var cliProcess = new System.Diagnostics.Process()
+            {
+                StartInfo = new System.Diagnostics.ProcessStartInfo("sh", "google-chrome --version")
+                {
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true
+                }
+            };
+            cliProcess.Start();
+            string cliOut = cliProcess.StandardOutput.ReadToEnd();
+            cliProcess.WaitForExit();
+            cliProcess.Close();
             _driver = new ChromeDriver(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), options, TimeSpan.FromSeconds(10));
 
             //_driver = new ChromeDriver(options);

@@ -63,6 +63,10 @@
               "target": "Package",
               "version": "[4.1.1, )"
             },
+            "Selenium.WebDriver.ChromeDriver": {
+              "target": "Package",
+              "version": "[101.0.4951.4100, )"
+            },
             "coverlet.collector": {
               "target": "Package",
               "version": "[3.0.2, )"

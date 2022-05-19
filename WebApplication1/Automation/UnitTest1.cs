@@ -7,7 +7,7 @@ namespace Automation
 {
     public class Tests
     {
-        public WebDriver _driver;
+        public IWebDriver _driver;
         // public IWebDriver _driver2;
         private const string URL = "http://sportapisce.herokuapp.com/";
         private const string userName = "admin";
@@ -28,19 +28,19 @@ namespace Automation
 
 
             ChromeOptions options = new ChromeOptions();
-            options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
-            options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
+            //options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
+            //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
 
 
             // FirefoxOptions options = new FirefoxOptions();
-            options.AddArguments("--headless");
+            options.AddArgument("--headless");
             //options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            options.AddArguments("disable-infobars"); // disabling infobars
-            options.AddArguments("disable-extensions"); // disabling extensions
-            options.AddArguments("disable-gpu"); // applicable to windows os only
-            options.AddArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-            options.AddArguments("--no-sandbox"); // Bypass OS security model
-            options.AddArguments("--whitelisted-ips");
+            //options.AddArguments("disable-infobars"); // disabling infobars
+            //options.AddArguments("disable-extensions"); // disabling extensions
+            options.AddArgument("disable-gpu"); // applicable to windows os only
+            options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
+            options.AddArgument("--no-sandbox"); // Bypass OS security model
+            options.AddArgument("--whitelisted-ips");
             //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             _driver = new ChromeDriver(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), options);
             //_driver = new ChromeDriver(options);

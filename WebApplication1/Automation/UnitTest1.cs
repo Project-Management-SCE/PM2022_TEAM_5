@@ -44,21 +44,21 @@ namespace Automation
             //options.AddArgument("--whitelisted-ips");
             //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             // Start the child process.
-            var cliProcess = new System.Diagnostics.Process()
-            {
-                StartInfo = new System.Diagnostics.ProcessStartInfo("sh", "sh --help")
-                {
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true
-                }
-            };
-            cliProcess.Start();
-            string cliOut = cliProcess.StandardOutput.ReadToEnd();
-            Console.WriteLine(cliOut);
-            cliProcess.WaitForExit();
-            Console.WriteLine(cliOut);
-            cliProcess.Close();
-            Console.WriteLine(cliOut);
+            //var cliProcess = new System.Diagnostics.Process()
+            //{
+            //    StartInfo = new System.Diagnostics.ProcessStartInfo("sh", "sh --help")
+            //    {
+            //        UseShellExecute = false,
+            //        RedirectStandardOutput = true
+            //    }
+            //};
+            //cliProcess.Start();
+            //string cliOut = cliProcess.StandardOutput.ReadToEnd();
+            //Console.WriteLine(cliOut);
+            //cliProcess.WaitForExit();
+            //Console.WriteLine(cliOut);
+            //cliProcess.Close();
+            //Console.WriteLine(cliOut);
             _driver = new ChromeDriver(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), options, TimeSpan.FromSeconds(10));
 
             //_driver = new ChromeDriver(options);

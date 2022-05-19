@@ -34,14 +34,14 @@ namespace Automation
 
 
             // FirefoxOptions options = new FirefoxOptions();
-            options.AddArgument("--headless");
-            //options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            //options.AddArguments("disable-infobars"); // disabling infobars
-            //options.AddArguments("disable-extensions"); // disabling extensions
-            options.AddArgument("disable-gpu"); // applicable to windows os only
-            options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
-            options.AddArgument("--no-sandbox"); // Bypass OS security model
-            options.AddArgument("--whitelisted-ips");
+            //options.AddArgument("--headless");
+            ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            ////options.AddArguments("disable-infobars"); // disabling infobars
+            ////options.AddArguments("disable-extensions"); // disabling extensions
+            //options.AddArgument("disable-gpu"); // applicable to windows os only
+            //options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
+            //options.AddArgument("--no-sandbox"); // Bypass OS security model
+            //options.AddArgument("--whitelisted-ips");
             //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             _driver = new ChromeDriver(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), options, TimeSpan.FromSeconds(10));
             //_driver = new ChromeDriver(options);

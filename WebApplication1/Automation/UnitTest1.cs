@@ -54,8 +54,11 @@ namespace Automation
             };
             cliProcess.Start();
             string cliOut = cliProcess.StandardOutput.ReadToEnd();
+            Console.WriteLine(cliOut);
             cliProcess.WaitForExit();
+            Console.WriteLine(cliOut);
             cliProcess.Close();
+            Console.WriteLine(cliOut);
             _driver = new ChromeDriver(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), options, TimeSpan.FromSeconds(10));
 
             //_driver = new ChromeDriver(options);

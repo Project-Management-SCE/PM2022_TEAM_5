@@ -38,13 +38,13 @@ pipeline {
                      //          sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore'
                      //       }
                      //    }
-                     // stage('Test: Integration Test'){
+                     stage('Test: Integration Test'){
                            
-                     //     steps {
-                     //         sh 'chrome --help'
-                     //          sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
-                     //       }
-                     //    }
+                         steps {
+                             sh 'killall -kill chromedriver'
+                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
+                           }
+                        }
    
                }
         }          
@@ -56,8 +56,7 @@ pipeline {
                       }
                }
            steps {
-               sh '''
-       			   grep -rl "google"
+               sh '''       			   
                    curl https://cli-assets.heroku.com/install.sh | sh;
                    heroku container:login
                    heroku container:push web --app sportapisce

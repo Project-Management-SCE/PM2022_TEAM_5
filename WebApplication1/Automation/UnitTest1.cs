@@ -42,8 +42,8 @@ namespace Automation
             options.AddArguments("--no-sandbox"); // Bypass OS security model
             options.AddArguments("--whitelisted-ips");
             //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            //_driver = new ChromeDriver(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location),options);
-            _driver = new ChromeDriver(options);
+            _driver = new ChromeDriver(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), options);
+            //_driver = new ChromeDriver(options);
             //_driver.Navigate().GoToUrl(PATH);
 
             // _driver2 = new FirefoxDriver(options);

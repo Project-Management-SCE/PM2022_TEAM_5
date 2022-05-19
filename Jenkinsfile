@@ -41,7 +41,7 @@ pipeline {
                      stage('Test: Integration Test'){
                            
                          steps {
-                             sh 'sh --help'
+                             sh 'chrome --help'
                               sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
                            }
                         }

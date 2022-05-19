@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9R5xFHXh7HNPjfJwVU73ObRV02wL+jCiuFTGqRMvDkeapFRM68zROyg/qAeA2OmZLq1qtPddCMuYdYKLZWT9mw==",
+  "dgSpecHash": "ZcooXVIwMY+NA7pgS/SKyeW/Hgr6j29yTBd+HAi2bSHeTyyF/9Df+SwVOjC4kBiOaWEZlCB+68pNKVV+viPMUQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Eliran\\Desktop\\Sport api\\PM2022_TEAM_5-main\\WebApplication1\\Automation\\Automation.csproj",
   "expectedPackageFiles": [
@@ -21,7 +21,6 @@
     "C:\\Users\\Eliran\\.nuget\\packages\\nunit3testadapter\\3.17.0\\nunit3testadapter.3.17.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Eliran\\.nuget\\packages\\selenium.webdriver\\4.1.1\\selenium.webdriver.4.1.1.nupkg.sha512",
-    "C:\\Users\\Eliran\\.nuget\\packages\\selenium.webdriver.chromedriver\\88.0.4324.2700\\selenium.webdriver.chromedriver.88.0.4324.2700.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.appcontext\\4.1.0\\system.appcontext.4.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",

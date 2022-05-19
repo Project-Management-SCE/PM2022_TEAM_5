@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'mcr.microsoft.com/dotnet/sdk:6.0'
-        }
-    }
+       agent none
     environment {
         dotnet ='C:\\Program Files (x86)\\dotnet\\'
         DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
@@ -12,40 +8,62 @@ pipeline {
     	 pollSCM 'H * * * *'
         githubPush()
     }
-    stages {
-        stage('Restore packages'){
-           steps{
-               sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
-            }
-         }
-        stage('Clean'){
-           steps{
-               sh 'dotnet clean ./WebApplication1/WebApplication1.sln --configuration Release'
-            }
-         }         
-        stage('Build'){
-           steps{
-               sh 'dotnet build ./WebApplication1/WebApplication1.sln --configuration Release --no-restore'
-            }
-         }
-       /* stage('Test: Unit Test'){
+    stages {                      
+        stage('Restore, Clean, Build and Test'){
+                 
+               agent{
+                      docker{
+                             image 'mcr.microsoft.com/dotnet/sdk:5.0'
+                      }
+               }
+                                  
+               stages{ 
+                       stage('Restore packages'){
+                         steps{
+                             sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
+                          }
+                       }
+                      stage('Clean'){
+                       steps{
+                             sh 'dotnet clean ./WebApplication1/WebApplication1.sln --configuration Release'
+                       }   
+                      }
+                      stage('Build'){             
+                         steps{
+                             sh 'dotnet build ./WebApplication1/WebApplication1.sln --no-restore --configuration Release'
+                          }
+                       }
+                     // stage('Test: Unit Test'){      
+                     //     steps {
+                     //          sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore'
+                     //       }
+                     //    }
+                     stage('Test: Integration Test'){
+                           
+                         steps {
+                             
+                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
+                           }
+                        }
+   
+               }
+        }          
+        stage('Deploy to Heroku') { 
+               agent{
+                      docker{
+                            image 'cimg/base:stable'
+                             args '-u root'
+                      }
+               }
            steps {
-                sh 'dotnet test XUnitTestProject/XUnitTestProject.csproj --configuration Release --no-restore'
-             }
-          }
-        stage('Publish'){
-             steps{
-               sh 'dotnet publish WebApplication/WebApplication.csproj --configuration Release --no-restore'
-             }
-        }
-        stage('Deploy'){
-             steps{
-               sh '''for pid in $(lsof -t -i:9090); do
-                       kill -9 $pid
-               done'''
-               sh 'cd WebApplication/bin/Release/netcoreapp3.1/publish/'
-               sh 'nohup dotnet WebApplication.dll --urls="http://104.128.91.189:9090" --ip="104.128.91.189" --port=9090 --no-restore > /dev/null 2>&1 &'
-             }
-        } */
+               sh '''
+                   curl https://cli-assets.heroku.com/install.sh | sh;
+                   heroku container:login
+                   heroku container:push web --app sportapisce
+                   heroku container:release web --app sportapisce
+               '''
+           }
+       }
+/* image 'mcr.microsoft.com/dotnet/sdk:5.0'*/
     }
 }

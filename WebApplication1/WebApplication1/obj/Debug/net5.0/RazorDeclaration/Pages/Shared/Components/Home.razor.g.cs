@@ -149,7 +149,7 @@ using WebApplication1.Model;
                 Headers =
                 {
                     { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                    { "X-RapidAPI-Key", "a3458e64femsh44eef93425c6a0dp15fe88jsne2552c6542e8" },
+                    { "X-RapidAPI-Key", "7023c1bfb2msh2adf6085c09ee5cp15b097jsn7bbb642b49b1" },
                 },
             };
 		using (var response = await client.SendAsync(request))
@@ -205,7 +205,7 @@ using WebApplication1.Model;
             Headers =
             {
                 { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                { "X-RapidAPI-Key", "a3458e64femsh44eef93425c6a0dp15fe88jsne2552c6542e8" },
+                { "X-RapidAPI-Key", "7023c1bfb2msh2adf6085c09ee5cp15b097jsn7bbb642b49b1" },
             },
         };
         using (var response = await client.SendAsync(request))

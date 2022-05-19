@@ -40,15 +40,22 @@ namespace WebApplication1.Pages
             if(ModelState.IsValid)
             {
 
+                byte[] imageBytes;
+                string someUrl = "https://sportapisce.herokuapp.com/img/default_pic.png";
+                using (var webClient = new System.Net.WebClient())
+                {
+                    imageBytes = webClient.DownloadData(someUrl);
+                }
 
-                string path = _env.WebRootPath + "\\img\\default_pic.png";
-                byte[] photo = System.IO.File.ReadAllBytes(path);
+            // string path = "https://sportapisce.herokuapp.com/img/default_pic.png";
+
+            // byte[] photo = System.IO.File.ReadAllBytes(path);
 
                 var user = new ApplicationUser()
                 {
                     UserName = Model.UserName,
                     Email = Model.Email,
-                    ProfilePic = photo,
+                    ProfilePic = imageBytes,
                 };
 
                 var  result = await userManager.CreateAsync(user, Model.Password);
@@ -60,8 +67,8 @@ namespace WebApplication1.Pages
                         role = "Vip";
                     }
                     
+                    await userManager.AddToRoleAsync(user, role);                    
                     await signInManager.SignInAsync(user, false);
-                    await userManager.AddToRoleAsync(user, role);
                     return RedirectToPage("Index");
                 }
                 foreach(var err in result.Errors)

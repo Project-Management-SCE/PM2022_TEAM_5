@@ -19,12 +19,11 @@ pipeline {
                sh 'dotnet build WebApplication1.sln --configuration Release'
             }
          }
-       stage('Test: Unit Test'){
+       /* stage('Test: Unit Test'){
            steps {
-                sh 'dotnet test TestProject1/TestProject1.csproj --configuration Release --no-restore'
+                sh 'dotnet test XUnitTestProject/XUnitTestProject.csproj --configuration Release --no-restore'
              }
           }
-          /* 
         stage('Publish'){
              steps{
                sh 'dotnet publish WebApplication/WebApplication.csproj --configuration Release --no-restore'

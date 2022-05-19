@@ -9,5 +9,6 @@ namespace WebApplication1.Model
     public class ApplicationUser: IdentityUser
     {
         public byte[] ProfilePic { get; set; }
+
     }
 }

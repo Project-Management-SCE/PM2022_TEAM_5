@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Model;
 
 namespace WebApplication1.Model
 {
@@ -21,5 +22,7 @@ namespace WebApplication1.Model
 
             builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
         }
+
+        public DbSet<WebApplication1.Model.User> User { get; set; }
     }
 }

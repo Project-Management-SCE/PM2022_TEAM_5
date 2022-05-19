@@ -22,7 +22,7 @@ namespace WebApplication1.Pages
         {
             this.userManager = userManager;
             this.signInMannager = signInManager;
-        }      
+        }
 
         public void OnGet()
         {

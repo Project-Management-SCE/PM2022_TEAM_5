@@ -20,7 +20,12 @@
       "ProjectGuid": "a0ad3a81-e5a9-401b-96eb-eb4a7128d33e",
       "DisplayName": "TestProject",
       "ColorIndex": 2
+    },
+    "cc5b5029-ff9e-4a07-a0aa-1791f46caa2a": {
+      "ProjectGuid": "cc5b5029-ff9e-4a07-a0aa-1791f46caa2a",
+      "DisplayName": "Automation",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }

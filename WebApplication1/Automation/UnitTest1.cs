@@ -46,7 +46,7 @@ namespace Automation
             // Start the child process.
             var cliProcess = new System.Diagnostics.Process()
             {
-                StartInfo = new System.Diagnostics.ProcessStartInfo("sh", "google-chrome --version")
+                StartInfo = new System.Diagnostics.ProcessStartInfo("echo", "google-chrome --version")
                 {
                     UseShellExecute = false,
                     RedirectStandardOutput = true

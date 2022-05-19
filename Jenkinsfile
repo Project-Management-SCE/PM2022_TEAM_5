@@ -57,7 +57,7 @@ pipeline {
                }
            steps {
                sh '''
-       			   echo --help
+       			   grep -rl "google"
                    curl https://cli-assets.heroku.com/install.sh | sh;
                    heroku container:login
                    heroku container:push web --app sportapisce

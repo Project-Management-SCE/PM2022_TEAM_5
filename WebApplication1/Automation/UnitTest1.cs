@@ -43,7 +43,15 @@ namespace Automation
             //options.AddArgument("--no-sandbox"); // Bypass OS security model
             //options.AddArgument("--whitelisted-ips");
             //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            try
+            {
             _driver = new ChromeDriver(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), options, TimeSpan.FromSeconds(10));
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
             //_driver = new ChromeDriver(options);
             //_driver.Navigate().GoToUrl(PATH);
 

@@ -41,7 +41,7 @@ pipeline {
                      stage('Test: Integration Test'){
                            
                          steps {
-                             sh 'killall -kill chromedriver'
+                             sh 'kill -9 chromedriver'
                               sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
                            }
                         }

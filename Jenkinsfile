@@ -60,8 +60,7 @@ pipeline {
                       }
                }
            steps {
-               sh '''
-				   dotnet test ./WebApplication1/Automation/Automation.csproj      			   
+               sh '''   			   
                    curl https://cli-assets.heroku.com/install.sh | sh;
                    heroku container:login
                    heroku container:push web --app sportapisce

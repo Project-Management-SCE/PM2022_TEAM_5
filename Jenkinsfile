@@ -39,7 +39,7 @@ pipeline {
                      //          sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore'
                      //       }
                      //    }
-                     stages('Test: Integration Test'){
+                     stages{
                            stage('Automation'){
                	               agent{
 				                      docker{

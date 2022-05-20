@@ -39,16 +39,16 @@ pipeline {
                      //       }
                      //    }
                      
-	                   stage('Automation'){	                   		
-	       	         //       agent{
-		                //       docker{			                             
-		                //              image 'elgalu/selenium'
-		                //       }
-			               // }			               
-	                        steps {                    			                               
-	                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
-		                       }
-	                   }
+	                 //   stage('Automation'){	                   		
+	       	         // //       agent{
+		                // //       docker{			                             
+		                // //              image 'elgalu/selenium'
+		                // //       }
+			               // // }			               
+	                 //        steps {                    			                               
+	                 //              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
+		                //        }
+	                 //   }
    
                }
         }          
@@ -60,7 +60,8 @@ pipeline {
                       }
                }
            steps {
-               sh '''       			   
+               sh '''
+				   dotnet test ./WebApplication1/Automation/Automation.csproj      			   
                    curl https://cli-assets.heroku.com/install.sh | sh;
                    heroku container:login
                    heroku container:push web --app sportapisce

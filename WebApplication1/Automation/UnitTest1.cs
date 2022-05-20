@@ -62,11 +62,9 @@ namespace Automation
             string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
             //options.BinaryLocation = driverDirectory;
+            Console.WriteLine("\n\n\tblahhhh\n\n");
             _driver = new RemoteWebDriver(options);
-            Console.WriteLine("start sleep");         
-            System.Threading.Thread.Sleep(5 * 1000000);
-            Console.WriteLine("end sleep");
-
+            Console.WriteLine("\n\n\tend\n\n");
 
 
             //_driver = new ChromeDriver(options);

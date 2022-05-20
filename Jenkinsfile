@@ -9,13 +9,12 @@ pipeline {
         githubPush()
     }
     stages {                      
-        stage('Restore, Clean, Build and Test'){
-                 
+        stage('Restore, Clean, Build and Test'){                 
                agent{
-                      docker{
-                             image 'mcr.microsoft.com/dotnet/sdk:5.0'
-                             // image 'elgalu/selenium'
-                      }
+                      // docker{
+                      //        image 'mcr.microsoft.com/dotnet/sdk:5.0'
+                      // }
+                      dockerfile true
                }
                                   
                stages{ 
@@ -40,14 +39,13 @@ pipeline {
                      //       }
                      //    }
                      
-	                   stage('Automation'){	                   		
+	                 //   stage('Automation'){	                   		
 	       	         //       agent{
-			               //        docker{			                             
-			               //               image 'elgalu/selenium'
-			               //        }
-			               // }
-	                        steps {
-                        			sh 'docker pull elgalu/selenium'                             
+		                //       docker{			                             
+		                //              image 'elgalu/selenium'
+		                //       }
+			               // }			               
+	                        steps {                    			                               
 	                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
 		                       }
 	                   }

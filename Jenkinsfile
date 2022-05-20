@@ -41,13 +41,13 @@ pipeline {
                      //    }
                      
 	                   stage('Automation'){	                   		
-	       	               agent{
-			                      docker{			                             
-			                             // image 'elgalu/selenium'
-			                             image 'mcr.microsoft.com/dotnet/sdk:5.0'
-			                      }
-			               }
-	                        steps {                             
+	       	         //       agent{
+			               //        docker{			                             
+			               //               image 'elgalu/selenium'
+			               //        }
+			               // }
+	                        steps {
+                        			sh 'docker pull elgalu/selenium'                             
 	                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
 		                       }
 	                   }

@@ -39,7 +39,7 @@ pipeline {
                      //       }
                      //    }
                      
-	                 //   stage('Automation'){	                   		
+	                   stage('Automation'){	                   		
 	       	         //       agent{
 		                //       docker{			                             
 		                //              image 'elgalu/selenium'

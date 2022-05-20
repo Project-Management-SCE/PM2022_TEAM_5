@@ -39,7 +39,7 @@ pipeline {
                      //          sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore'
                      //       }
                      //    }
-                     stage('Test: Integration Test'){
+                     stages('Test: Integration Test'){
                            stage('Automation'){
                	               agent{
 				                      docker{
@@ -73,5 +73,6 @@ pipeline {
            }
        }
 /* image 'mcr.microsoft.com/dotnet/sdk:5.0'*/
+// Google Chrome 91.0.4472.77 
     }
 }

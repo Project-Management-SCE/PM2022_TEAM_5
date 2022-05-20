@@ -13,16 +13,15 @@ pipeline {
                  
                agent{
                       docker{
-                             // image 'mcr.microsoft.com/dotnet/sdk:5.0'
-                             image 'elgalu/selenium'
+                             image 'mcr.microsoft.com/dotnet/sdk:5.0'
+                             // image 'elgalu/selenium'
                       }
                }
                                   
                stages{ 
                        stage('Restore packages'){
-                         steps{
-                         	sh 'google-chrome --version'	
-                             // sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
+                         steps{                         
+                             sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
                           }
                        }
                       stage('Clean'){
@@ -41,10 +40,18 @@ pipeline {
                      //       }
                      //    }
                      stage('Test: Integration Test'){
-                           
-                         steps {                             
-                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
+                           stage('Automation'){
+               	               agent{
+				                      docker{
+				                             // image 'mcr.microsoft.com/dotnet/sdk:5.0'
+				                             image 'elgalu/selenium'
+				                      }
+				               }
+	                            steps {                             
+		                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
+			                       }
                            }
+
                         }
    
                }

@@ -12,7 +12,7 @@ WORKDIR "/src/WebApplication1"
 RUN dotnet build "WebApplication1/WebApplication1.csproj" -c Release -o /app/build
 
 FROM build
-run docker pull elgalu/selenium 
+run docker pull 'elgalu/selenium' 
 run dotnet test "Automation/Automation.csproj"
 
 FROM build AS publish

@@ -13,7 +13,7 @@ RUN dotnet build "WebApplication1/WebApplication1.csproj" -c Release -o /app/bui
 
 FROM elgalu/selenium
 FROM build
-run dotnet test "WebApplication1/Automation/Automation.csproj"
+run dotnet test "Automation/Automation.csproj"
 
 FROM build AS publish
 RUN dotnet publish "WebApplication1/WebApplication1.csproj" -c Release -o /app/publish

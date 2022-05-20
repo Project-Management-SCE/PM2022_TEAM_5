@@ -11,7 +11,8 @@ COPY . .
 WORKDIR "/src/WebApplication1"
 RUN dotnet build "WebApplication1/WebApplication1.csproj" -c Release -o /app/build
 
-FROM elgalu/selenium as final
+FROM elgalu/selenium, build
+run dotnet test ./WebApplication1/Automation/Automation.csproj'
 
 FROM build AS publish
 RUN dotnet publish "WebApplication1/WebApplication1.csproj" -c Release -o /app/publish

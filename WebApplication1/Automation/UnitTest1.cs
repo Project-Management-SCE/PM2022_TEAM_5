@@ -32,7 +32,7 @@ namespace Automation
             ChromeOptions options = new ChromeOptions();
             options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
             options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
-
+            options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444/wd/hub");
             // FirefoxOptions options = new FirefoxOptions();
             options.AddArgument("--headless");
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -65,6 +65,7 @@ namespace Automation
             Uri uri = new Uri("http://127.0.0.1:4444/wd/hub");
             _driver = new RemoteWebDriver(options);
             Console.WriteLine("start sleep");
+            
             System.Threading.Thread.Sleep(5 * 1000000);
             Console.WriteLine("end sleep");
 

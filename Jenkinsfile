@@ -42,9 +42,9 @@ pipeline {
                      
 	                   stage('Automation'){	                   		
 	       	               agent{
-			                      docker{
-			                             // image 'mcr.microsoft.com/dotnet/sdk:5.0'
-			                             image 'elgalu/selenium'
+			                      docker{			                             
+			                             // image 'elgalu/selenium'
+			                             image 'mcr.microsoft.com/dotnet/sdk:5.0'
 			                      }
 			               }
 	                        steps {                             

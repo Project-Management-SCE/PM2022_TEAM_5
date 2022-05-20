@@ -2,6 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
+using OpenQA.Selenium.Remote;
 // using OpenQA.Selenium.Firefox;
 
 namespace Automation
@@ -59,7 +60,9 @@ namespace Automation
             //Console.WriteLine(cliOut);
             //cliProcess.Close();
             //Console.WriteLine(cliOut);
-            _driver = new ChromeDriver(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), options, TimeSpan.FromSeconds(10));
+            string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
+            _driver = new RemoteWebDriver(options);
 
             //_driver = new ChromeDriver(options);
             //_driver.Navigate().GoToUrl(PATH);

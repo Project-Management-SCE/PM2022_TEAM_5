@@ -62,9 +62,13 @@ namespace Automation
             string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
             options.BinaryLocation = driverDirectory;
-            Uri uri = new Uri("http://127.0.0.1:4444/wd/hub");            
+            Uri uri = new Uri("http://127.0.0.1:4444/wd/hub");
             _driver = new RemoteWebDriver(options);
-            
+            Console.WriteLine("start sleep");
+            System.Threading.Thread.Sleep(5 * 1000000);
+            Console.WriteLine("end sleep");
+
+
 
             //_driver = new ChromeDriver(options);
             //_driver.Navigate().GoToUrl(PATH);

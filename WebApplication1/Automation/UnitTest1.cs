@@ -30,19 +30,18 @@ namespace Automation
 
 
             ChromeOptions options = new ChromeOptions();
-            //options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
-            //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
-
+            options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
+            options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
 
             // FirefoxOptions options = new FirefoxOptions();
-            //options.AddArgument("--headless");
+            options.AddArgument("--headless");
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            ////options.AddArguments("disable-infobars"); // disabling infobars
-            ////options.AddArguments("disable-extensions"); // disabling extensions
-            //options.AddArgument("disable-gpu"); // applicable to windows os only
-            //options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
-            //options.AddArgument("--no-sandbox"); // Bypass OS security model
-            //options.AddArgument("--whitelisted-ips");
+            //options.AddArguments("disable-infobars"); // disabling infobars
+            //options.AddArguments("disable-extensions"); // disabling extensions
+            options.AddArgument("disable-gpu"); // applicable to windows os only
+            options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
+            options.AddArgument("--no-sandbox"); // Bypass OS security model
+            options.AddArgument("--whitelisted-ips");
             //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             // Start the child process.
             //var cliProcess = new System.Diagnostics.Process()
@@ -62,7 +61,10 @@ namespace Automation
             //Console.WriteLine(cliOut);
             string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
+            options.BinaryLocation = driverDirectory;
+            Uri uri = new Uri("http://127.0.0.1:4444/wd/hub");            
             _driver = new RemoteWebDriver(options);
+            
 
             //_driver = new ChromeDriver(options);
             //_driver.Navigate().GoToUrl(PATH);

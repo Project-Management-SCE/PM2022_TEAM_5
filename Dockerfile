@@ -12,6 +12,8 @@ WORKDIR "/src/WebApplication1"
 RUN dotnet build "WebApplication1/WebApplication1.csproj" -c Release -o /app/build
 
 FROM build
+RUN su root
+RUN apt install sudo
 RUN sudo apt-get update
 RUN sudo apt-get upgrade
 RUN sudo curl -sSL https://get.docker.com/ | sh

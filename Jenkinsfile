@@ -39,20 +39,18 @@ pipeline {
                      //          sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore'
                      //       }
                      //    }
-                     stages{
-                           stage('Automation'){
-               	               agent{
-				                      docker{
-				                             // image 'mcr.microsoft.com/dotnet/sdk:5.0'
-				                             image 'elgalu/selenium'
-				                      }
-				               }
-	                            steps {                             
-		                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
-			                       }
-                           }
-
-                        }
+                     
+	                   stage('Automation'){	                   		
+	       	               agent{
+			                      docker{
+			                             // image 'mcr.microsoft.com/dotnet/sdk:5.0'
+			                             image 'elgalu/selenium'
+			                      }
+			               }
+	                        steps {                             
+	                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
+		                       }
+	                   }
    
                }
         }          

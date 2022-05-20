@@ -13,14 +13,16 @@ pipeline {
                  
                agent{
                       docker{
-                             image 'mcr.microsoft.com/dotnet/sdk:5.0'
+                             // image 'mcr.microsoft.com/dotnet/sdk:5.0'
+                             image 'elgalu/selenium'
                       }
                }
                                   
                stages{ 
                        stage('Restore packages'){
                          steps{
-                             sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
+                         	sh 'google-chrome --version'	
+                             // sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
                           }
                        }
                       stage('Clean'){
@@ -40,8 +42,7 @@ pipeline {
                      //    }
                      stage('Test: Integration Test'){
                            
-                         steps {
-                             sh 'kill -9 chromedriver'
+                         steps {                             
                               sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
                            }
                         }

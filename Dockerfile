@@ -16,6 +16,8 @@ run docker pull 'elgalu/selenium'
 run dotnet test "Automation/Automation.csproj"
 
 FROM build AS publish
+RUN sudo apt-get update
+RUN sudo apt-get upgrade
 RUN sudo curl -sSL https://get.docker.com/ | sh
 RUN dotnet publish "WebApplication1/WebApplication1.csproj" -c Release -o /app/publish
 

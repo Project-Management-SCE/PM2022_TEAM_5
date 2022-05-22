@@ -60,10 +60,10 @@ namespace Automation
             //cliProcess.Close();
             //Console.WriteLine(cliOut);
             string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
+            _driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
             //options.BinaryLocation = driverDirectory;
             Console.WriteLine("\n\n\tblahhhh\n\n");
-            _driver = new RemoteWebDriver(options);
+            //_driver = new RemoteWebDriver(options);
             Console.WriteLine("\n\n\tend\n\n");
 
 

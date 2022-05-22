@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
@@ -10,6 +10,8 @@ RUN dotnet restore "WebApplication1/WebApplication1.csproj"
 COPY . .
 WORKDIR "/src/WebApplication1"
 RUN dotnet build "WebApplication1/WebApplication1.csproj" -c Release -o /app/build
+
+FROM elgalu/selenium
 
 FROM build AS publish
 RUN dotnet publish "WebApplication1/WebApplication1.csproj" -c Release -o /app/publish

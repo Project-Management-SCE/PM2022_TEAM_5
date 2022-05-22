@@ -11,17 +11,16 @@ pipeline {
     stages {                      
         stage('Restore, Clean, Build and Test'){                 
                agent{
-                      docker{                                                       
-                             // image 'mcr.microsoft.com/dotnet/sdk:6.0'
-                              image 'elgalu/selenium'
-                      }  
-                      // dockerfile true                    
+                      // docker{                                                       
+                      //        image 'mcr.microsoft.com/dotnet/sdk:6.0'
+                      //         // image 'elgalu/selenium'
+                      // }  
+                      dockerfile true                    
                }
                                   
                stages{ 
                        stage('Restore packages'){
-                         steps{                     
-                         	sh 'google-chrome --version'    
+                         steps{                        
                              sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
                           }
                        }

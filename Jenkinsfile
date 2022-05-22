@@ -45,7 +45,8 @@ pipeline {
 		                //              image 'elgalu/selenium'
 		                //       }
 			               // }			               
-	                        steps { 	                   			                               
+	                        steps {
+	                        		sh 'google-chrome --version' 	                   			                               
 	                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
 		                       }
 	                   }

@@ -33,7 +33,7 @@ namespace WebApplication1.Pages
         public async Task<IActionResult> OnGet()
         {
             //var sessionUser = JsonConvert.DeserializeObject<ApplicationUser>(HttpContext.Session.GetString("SessionUser"));
-            var user = await userManager.GetUserAsync(User);
+            var user = await userManager.GetUserAsync(User);            
             pic = user.ProfilePic;
             return Page();
         }
@@ -56,6 +56,8 @@ namespace WebApplication1.Pages
                     await file.CopyToAsync(dataStream);
                     user.ProfilePic = dataStream.ToArray();
                 }
+
+                user.FavTeam = "Maccabi Tel-Aviv";
                 await userManager.UpdateAsync(user);
                 pic = user.ProfilePic;
                 HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));

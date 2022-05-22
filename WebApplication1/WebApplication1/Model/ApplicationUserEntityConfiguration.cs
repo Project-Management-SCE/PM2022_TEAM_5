@@ -9,6 +9,8 @@ namespace WebApplication1.Model
         {
             builder.Property<byte[]>("ProfilePic")
                         .HasColumnType("varbinary(max)");
+            builder.Property<string>("FavTeam")
+            .HasColumnType("nvarchar(max)");
         }
     }
 }

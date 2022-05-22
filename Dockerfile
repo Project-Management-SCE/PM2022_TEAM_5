@@ -11,7 +11,7 @@ COPY . .
 WORKDIR "/src/WebApplication1"
 RUN dotnet build "WebApplication1/WebApplication1.csproj" -c Release -o /app/build
 
-FROM elgalu/selenium
+FROM femtopixel/google-chrome-headless
 RUN google-chrome --version
 
 FROM build AS publish

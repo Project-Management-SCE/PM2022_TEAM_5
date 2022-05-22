@@ -11,8 +11,8 @@ COPY . .
 WORKDIR "/src/WebApplication1"
 RUN dotnet build "WebApplication1/WebApplication1.csproj" -c Release -o /app/build
 
-FROM elgalu/selenium
-RUN dotnet --version
+FROM browserless/chrome
+RUN docker run -p 3000:3000 browserless/chrome
 
 FROM build AS publish
 RUN dotnet publish "WebApplication1/WebApplication1.csproj" -c Release -o /app/publish

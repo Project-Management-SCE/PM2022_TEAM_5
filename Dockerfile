@@ -13,6 +13,9 @@ RUN dotnet build "WebApplication1/WebApplication1.csproj" -c Release -o /app/bui
 
 FROM femtopixel/google-chrome-headless
 
+FROM kasmweb/chrome
+RUN google-chrome --version
+
 FROM build AS publish
 RUN dotnet publish "WebApplication1/WebApplication1.csproj" -c Release -o /app/publish
 

@@ -3,6 +3,9 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+FROM kasmweb/chrome
+RUN google-chrome --version
+
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["WebApplication1/WebApplication1/WebApplication1.csproj", "WebApplication1/"]
@@ -12,9 +15,6 @@ WORKDIR "/src/WebApplication1"
 RUN dotnet build "WebApplication1/WebApplication1.csproj" -c Release -o /app/build
 
 FROM femtopixel/google-chrome-headless
-
-FROM kasmweb/chrome
-RUN google-chrome --version
 
 FROM build AS publish
 RUN dotnet publish "WebApplication1/WebApplication1.csproj" -c Release -o /app/publish

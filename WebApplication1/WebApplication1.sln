@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebAppli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "unitTest", "unitTest\unitTest.csproj", "{F6A5B984-F8E7-4FB0-AC8E-74A045A09A13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation", "Automation\Automation.csproj", "{CC5B5029-FF9E-4A07-A0AA-1791F46CAA2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Automation", "Automation\Automation.csproj", "{CC5B5029-FF9E-4A07-A0AA-1791F46CAA2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

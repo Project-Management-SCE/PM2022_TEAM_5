@@ -1,0 +1,9 @@
+﻿@page
+@model WebApplication1.Pages.FavTeamModel
+@{
+}
+
+
+<div>
+    @(await Html.RenderComponentAsync<WebApplication1.Pages.Shared.Components.FavTeam>(RenderMode.ServerPrerendered))
+</div> 

@@ -35,6 +35,7 @@ namespace WebApplication1
             services.AddMemoryCache();
             //services.AddDefaultIdentity<ApplicationUser>()
             services.AddScoped<NewsService>();
+
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
             services.AddDbContext<NewsContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
 

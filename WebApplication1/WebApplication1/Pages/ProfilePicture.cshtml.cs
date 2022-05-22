@@ -27,8 +27,6 @@ namespace WebApplication1.Pages
             this.userManager = userManager;
             this.signInManager = signInManager;
 
-            //var sessionUser = JsonConvert.DeserializeObject<ApplicationUser>(HttpContext.Session.GetString("SessionUser"));
-            //Model.ProfilePicture = sessionUser.ProfilePic;
         }
         public async Task<IActionResult> OnGet()
         {

@@ -3,6 +3,7 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,22 +30,30 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     @if (SignInManager.IsSignedIn(User))
                     {
-        <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-page="/UserPanel">User Panel</a>
-            </li>
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/UserPanel">User Panel</a>
+                        </li>
+                        @if (!User.IsInRole("Standart"))
+                        {
 
-
-            <div class="navbar-nav flex-grow-1 justify-content-center" style="margin-right:140px">
-                <form class="d-flex ">
-                    <input class="form-control me-2" type="text" placeholder="Search">
-                    <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
-        </ul>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/FavTeam">Favourite Team</a>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ContactUs">Contact Us</a>
+                        </li>
+                        <div class="navbar-nav flex-grow-1 justify-content-center" style="margin-right:140px">
+                            <form class="d-flex ">
+                                <input class="form-control me-2" type="text" placeholder="Search">
+                                <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
+                    </ul>
                         <ul class="navbar-nav d-flex justify-content-center-end ">
                             <li class="nav-item">
                                 <a class="nav-link text-dark" id="adminPanel" asp-area="" asp-page="/AdminPanel">Admin Panel</a>

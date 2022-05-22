@@ -11,10 +11,10 @@ pipeline {
     stages {                      
         stage('Restore, Clean, Build and Test'){                 
                agent{
-                      docker{
-                             image 'mcr.microsoft.com/dotnet/sdk:5.0'
-                      }
-                      // dockerfile true
+                      // docker{
+                      //        image 'mcr.microsoft.com/dotnet/sdk:5.0'
+                      // }
+                      dockerfile true
                }
                                   
                stages{ 

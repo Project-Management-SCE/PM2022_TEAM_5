@@ -39,17 +39,17 @@ pipeline {
                      //       }
                      //    }
                      
-	                   stage('Automation'){	                   		
-	       	         //       agent{
-		                //       docker{			                             
-		                //              image 'elgalu/selenium'
-		                //       }
-			               // }			               
-	                        steps {
-	                        		// sh 'google-chrome --version' 	                   			                               
-	                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
-		                       }
-	                   }
+	                 //   stage('Automation'){	                   		
+	       	         // //       agent{
+		                // //       docker{			                             
+		                // //              image 'elgalu/selenium'
+		                // //       }
+			               // // }			               
+	                 //        steps {
+	                 //        		// sh 'google-chrome --version' 	                   			                               
+	                 //              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
+		                //        }
+	                 //   }
    
                }
         }          

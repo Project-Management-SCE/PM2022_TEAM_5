@@ -3,7 +3,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM kasmweb/chrome
+FROM selenium/standalone-chrome
 RUN google-chrome --version
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build

@@ -11,10 +11,11 @@ pipeline {
     stages {                      
         stage('Restore, Clean, Build and Test'){                 
                agent{
-                      docker{                             
-                             image 'elgalu/selenium'
-                             image 'mcr.microsoft.com/dotnet/sdk:5.0'
-                      }                      
+                      // docker{                             
+                      //        image 'elgalu/selenium'
+                      //        image 'mcr.microsoft.com/dotnet/sdk:5.0'
+                      // }  
+                      dockerfile true                    
                }
                                   
                stages{ 

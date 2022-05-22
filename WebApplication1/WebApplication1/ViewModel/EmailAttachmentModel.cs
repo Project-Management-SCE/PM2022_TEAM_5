@@ -20,7 +20,7 @@ namespace WebApplication1.ViewModel
             [Display(Name = "Body")]
             public string Body { get; set; }
             
-            [DataType(DataType.Upload)]
+
             [Display(Name = "Attachment")]
             public Microsoft.AspNetCore.Http.IFormFile Attachment { get; set; }
             public string From { get; set; }

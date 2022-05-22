@@ -47,7 +47,7 @@ pipeline {
 		                //       }
 			               // }			               
 	                        steps {
-	                        		// sh 'google-chrome --version' 	                   			                               
+	                        		sh 'google-chrome --version' 	                   			                               
 	                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
 		                       }
 	                   }

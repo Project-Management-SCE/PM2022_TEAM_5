@@ -49,9 +49,9 @@
                         if (index.name != null && index.logo != "")
                         {
 
-                            <a id="@index.id" class=" d-flex col-md-4 col-lg-3 justify-content-center align-content-center" style="background-color:darkgray; margin:10px" @onclick="() => { addFavTeam(index.name); }">
-                                <figure class=" flex-column justify-content-center align-content-center">
-                                    <img src=@index.logo class="grayscale rounded-circle img-fluid">
+                            <a href="" id="@index.id" class=" d-flex col-md-4 col-lg-3 justify-content-center align-content-center" @onclick="() => { addFavTeam(index.name); }">
+                                <figure class="favimgdiv rounded-circle flex-column justify-content-center align-content-center"style="text-align: center">
+                                    <img src=@index.logo class="favimg" >
                                     <figcaption>@index.name</figcaption>
                                 </figure>
                             </a>
@@ -70,9 +70,9 @@
                     {
                         if (index.name != null && index.logo != "")
                         {
-                            <a class=" d-flex col-md-4 col-lg-3 justify-content-center align-content-center" style="background-color:darkgray; margin:10px">
-                                <figure class=" flex-column justify-content-center align-content-center">
-                                    <img src=@index.logo class="grayscale rounded-circle img-fluid">
+                            <a href="" id="@index.id" class=" d-flex col-md-4 col-lg-3 justify-content-center align-content-center" @onclick="() => { addFavTeam(index.name); }">
+                                <figure class="favimgdiv rounded-circle flex-column justify-content-center align-content-center"style="text-align: center">
+                                    <img src=@index.logo class="favimg" >
                                     <figcaption>@index.name</figcaption>
                                 </figure>
                             </a>

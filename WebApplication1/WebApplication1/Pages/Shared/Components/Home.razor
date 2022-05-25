@@ -609,9 +609,9 @@
                 <h5 class="modal-title" id="exampleModalLabel">Game info</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="max-height: 550px;overflow-y: scroll;">
                 <div class="container">
-                    <div class="table-responsive">
+                    <div class="table-responsive" >
                         <table class="table table-dark shadow rounded">
                             <thead>
                                 <tr>
@@ -808,8 +808,8 @@
         //        }
         //    }
         //}
-        loading = true;
-        InvokeAsync(StateHasChanged);
+        //loading = true;
+        //InvokeAsync(StateHasChanged);
 
         string uri = "https://sportscore1.p.rapidapi.com/events/" + id + "/statistics";
         var client = new HttpClient();
@@ -831,7 +831,7 @@
             gamesStatistic = res.data;
         }
         modalChange = "modal active";
-        loading = false;
+        //loading = false;
         InvokeAsync(StateHasChanged);
     }
 

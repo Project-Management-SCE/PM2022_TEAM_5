@@ -1,0 +1,7 @@
+﻿@page "/Leagues"
+@model WebApplication1.Pages.LeaguesTableModel
+@{
+}
+<div >
+    @(await Html.RenderComponentAsync<WebApplication1.Pages.Shared.Components.Leagues>(RenderMode.ServerPrerendered))
+ </div>

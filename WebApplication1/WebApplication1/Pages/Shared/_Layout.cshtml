@@ -37,33 +37,46 @@
                             <li style="max-height:40px" class="nav-item d-flex align-items-center">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/UserPanel">User Panel</a>
                             </li>
-                        @if (!User.IsInRole("Standart"))
+                        @if (!User.IsInRole("Standard"))
                         {
 
                             <li style="max-height:40px" class="nav-item d-flex align-items-center">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/FavTeam">Favourite Team</a>
                             </li>
+                            <li style="max-height:40px" class="nav-item d-flex align-items-center">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Leagues">Leagues</a>
+                            </li>
                         }
                             <li style="max-height:40px" class="nav-item d-flex align-items-center">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/ContactUs">Contact Us</a>
                             </li>
-                            <li style="max-height:40px" class="nav-item d-flex align-items-center">
+                          @*<li style="max-height:40px" class="nav-item d-flex align-items-center">
                                 <form style="max-height:40px" class="navbar-nav d-flex justify-content-center "margin-left:100px">
                                     <input style="max-height:40px" class="form-control me-2" type="text" placeholder="Search">
                                     
                                     <button style="max-height:40px" class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
                                     <br/>
                                 </form>
-                            </li>
+                            </li>*@
+                            @if (User.IsInRole("Admin"))
+                        {
                             <li style="max-height:40px" class="nav-item d-flex align-items-center flex-grow-1 justify-content-end ">
                                 <a class="nav-link text-dark" id="adminPanel" asp-area="" asp-page="/AdminPanel">Admin Panel</a>
                             </li>
-
-                            <li style="max-height:40px" class="nav-item d-flex align-items-center ">
+                            <li style="max-height:40px" class="nav-item d-flex align-items-center justify-content-end">
                             <form method="post">
                                 <button type="submit" id="Logout" class="btn btn-primary" asp-page="=/../Logout" asp-page-handler="Logout">Logout</button>
                             </form>
                             </li>
+                        }
+                        else{
+                            <li style="max-height:40px" class="nav-item d-flex align-items-center flex-grow-1 justify-content-end">
+                            <form method="post">
+                                <button type="submit" id="Logout" class="btn btn-primary" asp-page="=/../Logout" asp-page-handler="Logout">Logout</button>
+                            </form>
+                            </li>
+                        }
+                            
                      
                         </ul>
                     }

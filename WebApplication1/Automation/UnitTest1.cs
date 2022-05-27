@@ -38,7 +38,7 @@ namespace Automation
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //options.AddArguments("disable-infobars"); // disabling infobars
             //options.AddArguments("disable-extensions"); // disabling extensions
-            options.AddArgument("disable-gpu"); // applicable to windows os only
+            //options.AddArgument("disable-gpu"); // applicable to windows os only
             options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
             options.AddArgument("--no-sandbox"); // Bypass OS security model
             options.AddArgument("--whitelisted-ips");
@@ -63,8 +63,9 @@ namespace Automation
             string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
             options.BinaryLocation = driverDirectory;
+            options.AcceptInsecureCertificates = true;
             //Console.WriteLine("\n\n\tblahhhh\n\n");
-            _driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options);
+            _driver = new RemoteWebDriver(new Uri("http://localhost:4444/"), options);
             Console.WriteLine("\n\n\tend\n\n");
 
 

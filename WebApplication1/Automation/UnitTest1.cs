@@ -18,17 +18,7 @@ namespace Automation
         [SetUp]
         public void Setup()
         {
-            WebDriver driver = new ChromeDriver();
-            ICapabilities caps = driver.Capabilities;
 
-            string browserName = string.Empty;
-            if (caps.HasCapability("browserName"))
-            {
-                browserName = caps.GetCapability("browserName").ToString();
-            }
-
-            Console.WriteLine(browserName);
-            Console.WriteLine(caps.GetCapability("browserVersion"));
             // var chromeService = ChromeDriverService.CreateDefaultService();
             //chromeService.SuppressInitialDiagnosticInformation = true;
             //if (!chromeService.IsRunning)
@@ -40,11 +30,11 @@ namespace Automation
             //     firefoxService.Start();
 
 
-            ChromeOptions options = new ChromeOptions();
+            //ChromeOptions options = new ChromeOptions();
             //options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
             //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
             //options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
-            //FirefoxOptions options = new FirefoxOptions();
+            FirefoxOptions options = new FirefoxOptions();
             options.AddArgument("--headless");            
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //options.AddArguments("disable-infobars"); // disabling infobars
@@ -73,10 +63,10 @@ namespace Automation
             //Console.WriteLine(cliOut);
             string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
-            options.BinaryLocation = driverDirectory;
+            //options.BinaryLocation = driverDirectory;
             options.AcceptInsecureCertificates = true;
             //Console.WriteLine("\n\n\tblahhhh\n\n");
-            _driver = new RemoteWebDriver(new Uri("http://localhost:4444/"), options.ToCapabilities());
+            _driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options.ToCapabilities());
             Console.WriteLine("\n\n\tend\n\n");
 
 

@@ -31,11 +31,11 @@ namespace Automation
             //     firefoxService.Start();
 
 
-            ChromeOptions options = new ChromeOptions();
+            //ChromeOptions options = new ChromeOptions();
             //options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
             //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
             //options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
-            //FirefoxOptions options = new FirefoxOptions();
+            FirefoxOptions options = new FirefoxOptions();
             options.AddArguments("headless");
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //options.AddArguments("disable-infobars"); // disabling infobars
@@ -46,10 +46,10 @@ namespace Automation
             options.AddArguments("whitelisted-ips");
             string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
-            options.BinaryLocation = driverDirectory;
+            //options.BinaryLocation = driverDirectory;
             options.AcceptInsecureCertificates = true;
             //Console.WriteLine("\n\n\tblahhhh\n\n");
-            _driver = new RemoteWebDriver(options.ToCapabilities());
+            _driver = new RemoteWebDriver(new Uri("http://host.docker.internal:4444"),options.ToCapabilities());
             Console.WriteLine("\n\n\tend\n\n");
 
 

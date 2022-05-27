@@ -35,14 +35,14 @@ namespace Automation
             //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
             //options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
             FirefoxOptions options = new FirefoxOptions();
-            options.AddArgument("--headless");            
+            options.AddArgumen("headless");            
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //options.AddArguments("disable-infobars"); // disabling infobars
             //options.AddArguments("disable-extensions"); // disabling extensions
             //options.AddArgument("disable-gpu"); // applicable to windows os only
-            options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
-            options.AddArgument("--no-sandbox"); // Bypass OS security model
-            options.AddArgument("--whitelisted-ips");
+            options.AddArgument("disable-dev-shm-usage"); // overcome limited resource problems
+            options.AddArgument("no-sandbox"); // Bypass OS security model
+            options.AddArgument("whitelisted-ips");
 
             //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             // Start the child process.

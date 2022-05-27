@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using WebApplication1.Model;
 using WebApplication1.ViewModel;
 namespace WebApplication1.Pages
 {
+    [Authorize(Roles = "Admin")]
     public class EditNewsModel : PageModel
     {
         public NewsContext News { get; set; } = null;

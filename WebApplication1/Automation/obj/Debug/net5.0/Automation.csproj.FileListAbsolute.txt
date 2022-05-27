@@ -90,7 +90,6 @@ C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\bin\Debug\net5.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\bin\Debug\net5.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\bin\Debug\net5.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\obj\Debug\net5.0\Automation.csproj.AssemblyReference.cache
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\obj\Debug\net5.0\Automation.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\obj\Debug\net5.0\Automation.AssemblyInfoInputs.cache
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\obj\Debug\net5.0\Automation.AssemblyInfo.cs

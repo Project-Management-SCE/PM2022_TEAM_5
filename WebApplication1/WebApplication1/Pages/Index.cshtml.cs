@@ -19,7 +19,7 @@ using WebApplication1.Model;
 
 namespace WebApplication1.Pages
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,Vip,Standard")]
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;

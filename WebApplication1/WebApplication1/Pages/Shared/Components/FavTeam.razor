@@ -4,219 +4,207 @@
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Http
 @inject UserManager<ApplicationUser> userManager
-@*@inject SignInManager<ApplicationUser> SignInManager*@
 @inject IHttpContextAccessor HttpContextAccessor
+@inject NavigationManager navigationManager
 
+<h3>Favourite Team</h3>
 
+@if(user == null || isLoad)
+{
+    <Loading/>
+}
+else
+{
+   @if((user.FavTeam != null || user.FavTeam != "" ) && (!isEdit))
+{
+        @*<FavTeam />*@
+    
+    <button type="button" @onclick="Nav_To_Edit" class="btn btn-primary">Edit Favourite Team</button>
+    <br />
+    <p></p>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#home">Home Games</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#away">Away Games</a>
+        </li>
+    </ul>
+    <br />
+    <div class="tab-content">
+        <div id="home" class="tab-pane active">
+            <div class="container">
+                <div class="table-responsive" >
+                    <table class="table table-dark shadow rounded">
+                        <thead>
+                            <tr>
+                                <th scope="col">Home</th>
+                                <th scope="col">Date/Score</th>
+                                <th scope="col">Away</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(favteam_home != null)
+                            {
 
-
-<h3>FavTeam</h3>
-<ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" data-bs-toggle="tab" href="#soccer">Soccer</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="tab" href="#basketBall">BasketBall</a>
-    </li>
-
-    @*<div class="navbar-nav justify-content-center">
-
-            <div class="position-relative">
-                <input type="text" class="form-control" placeholder="Search Live" @bind="@SearchValue" @oninput="Search">
-                <i class="fa-solid fa-magnifying-glass position-absolute top-50 end-0 translate-middle-y pe-2"></i>
+                                foreach(var stat in favteam_home)
+                                {
+                                    <tr>
+                                        <td>@stat.home_team.name</td>
+                                            @if(stat.status == "finished")
+                                            {
+                                                <td>@stat.home_score.current - @stat.away_score.current ( On : @stat.start_at ) </td>
+                                            }
+                                            else
+                                            {
+                                                <td>Start at : @stat.start_at</td>                                           
+                                            }
+                                        <td>@stat.away_team.name</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
+        <div id="away" class="tab-pane fade">
+            <div class="container">
+                <div class="table-responsive" >
+                    <table class="table table-dark shadow rounded">
+                        <thead>
+                            <tr>
+                                <th scope="col">Home</th>
+                                <th scope="col">Date/Score</th>
+                                <th scope="col">Away</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(favteam_away != null)
+                            {
 
-        </div>*@
+                                foreach(var stat in favteam_away)
+                                {
+                                    <tr>
+                                        <td>@stat.home_team.name</td>
+                                            @if(stat.status == "finished")
+                                            {
+                                                <td>@stat.home_score.current - @stat.away_score.current</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@stat.start_at</td>                                           
+                                            }
+                                        <td>@stat.away_team.name</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
-</ul>
 
 
-<div class="tab-content">
-
-    @if (isLoading)
-    {
-        <Loading />
-    }
+    
+}
     else
     {
-        <div id="soccer" class="container tab-pane active">
-            <br>
-            <h3>Live Results: @SearchValue </h3>
-            <div class="container-fluid">
-                <div class="row">
-                    @foreach (var index in soccer)
-                    {
-                        if (index.name != null && index.logo != "")
-                        {
+        <button type="button" @onclick="Nav_To_Fav" class="btn btn-info">Back To Favourite Team</button>
 
-                            <a id="@index.id" class=" d-flex col-md-4 col-lg-3 justify-content-center align-content-center" style="background-color:darkgray; margin:10px" @onclick="() => { addFavTeam(index.name); }">
-                                <figure class=" flex-column justify-content-center align-content-center">
-                                    <img src=@index.logo class="grayscale rounded-circle img-fluid">
-                                    <figcaption>@index.name</figcaption>
-                                </figure>
-                            </a>
-
-                        }
-                    }
-                </div>
-            </div>
-        </div>
-
-        <div id="basketBall" class="container tab-pane fade">
-            <br>
-            <div class="container-fluid">
-                <div class="row">
-                    @foreach (var index in basketball)
-                    {
-                        if (index.name != null && index.logo != "")
-                        {
-                            <a class=" d-flex col-md-4 col-lg-3 justify-content-center align-content-center" style="background-color:darkgray; margin:10px">
-                                <figure class=" flex-column justify-content-center align-content-center">
-                                    <img src=@index.logo class="grayscale rounded-circle img-fluid">
-                                    <figcaption>@index.name</figcaption>
-                                </figure>
-                            </a>
-                        }
-                    }
-                </div>
-            </div>
-        </div>
-
-    }
-</div>
-
-
-
-
-
+        <FavTeamEdit id="id"/>
+    
+    } 
+}
 
 
 
 @code {
-
-    public dynamic res = null;
-    public dynamic AllGames = new List<dynamic>();
-    public dynamic soccer = new List<dynamic>();
-    public dynamic basketball = new List<dynamic>();
-
-    public dynamic searchList = new List<dynamic>();
-    private bool loading = true;
-    private string SearchValue = "";
-
-    public bool isLoading = true;
+    ApplicationUser user;
+    public bool isEdit ;
+    string id;
+    public dynamic res;
+    public dynamic favteam_home = new List<dynamic>();
+    public dynamic favteam_away = new List<dynamic>();
+    public bool isLoad { get; set; } = true;
 
     protected override async Task OnInitializedAsync()
     {
-        var client = new HttpClient();
+        isLoad = true;
+        user = await userManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
+        isEdit = !(user.FavTeam != null || user.FavTeam != "");
+        id = user.FavTeam;
+        string startDate = DateTime.UtcNow.AddDays(-8).ToString("yyyy-MM-dd");
+        string endDate = DateTime.UtcNow.AddDays(8).ToString("yyyy-MM-dd");
+        string uri = $"https://sportscore1.p.rapidapi.com/events/search?date_end={endDate}&date_start={startDate}&home_team_id={id}&page=1";
+        Console.WriteLine(startDate);
+        Console.WriteLine(endDate);
+        Console.WriteLine(uri);
 
-        var request = new HttpRequestMessage
+        //away_team_id=138
+        if(id != null)
         {
-            Method = HttpMethod.Get,
-            RequestUri = new Uri("https://sportscore1.p.rapidapi.com/sports/1/teams?page=1"),
-            Headers =
-{
-                            { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                            { "X-RapidAPI-Key", Global.API_KEY },
-                        },
-        };
-        using (var response = await client.SendAsync(request))
-        {
-            response.EnsureSuccessStatusCode();
-            var body = await response.Content.ReadAsStringAsync();
+            uri = $"https://sportscore1.p.rapidapi.com/events/search?date_end={endDate}&date_start={startDate}&home_team_id={id}&page=1";
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri(uri),
+                Headers =
+                {
+                    { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
+                    { "X-RapidAPI-Key", Global.API_KEY},
+                },
+            };
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                var body = await response.Content.ReadAsStringAsync();
+                res = JsonConvert.DeserializeObject(body);
+                favteam_home = res.data;
+                @*favteam_home.Reverse();*@
+            }
 
+            //second request for away team
 
-            res = JsonConvert.DeserializeObject(body);
+            uri = $"https://sportscore1.p.rapidapi.com/events/search?date_end={endDate}&date_start={startDate}&away_team_id={id}&page=1";
+            client = new HttpClient();
+            request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri(uri),
+                Headers =
+                {
+                    { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
+                    { "X-RapidAPI-Key", Global.API_KEY},
+                },
+            };
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                var body = await response.Content.ReadAsStringAsync();
+                res = JsonConvert.DeserializeObject(body);
+                favteam_away = res.data;
 
-
-            foreach (var item in res.data)
-                soccer.Add(item);
-
-
+                @*favteam_away.Reverse();*@
+            }
         }
-
-        //israel league
-        request = new HttpRequestMessage
-        {
-            Method = HttpMethod.Post,
-            RequestUri = new Uri("https://sportscore1.p.rapidapi.com/teams/search?section_id=183"),
-            Headers =
-{
-                            { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                            { "X-RapidAPI-Key", Global.API_KEY },
-                        },
-        };
-        using (var response = await client.SendAsync(request))
-        {
-            response.EnsureSuccessStatusCode();
-            var body = await response.Content.ReadAsStringAsync();
-
-
-            res = JsonConvert.DeserializeObject(body);
-
-
-            foreach (var item in res.data)
-                if (item.is_nationality != "true")
-                    basketball.Add(item);
-        }
-        //nba
-        request = new HttpRequestMessage
-        {
-            Method = HttpMethod.Post,
-            RequestUri = new Uri("https://sportscore1.p.rapidapi.com/teams/search?section_id=168"),
-            Headers =
-{
-                            { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                            { "X-RapidAPI-Key", Global.API_KEY },
-                        },
-        };
-        using (var response = await client.SendAsync(request))
-        {
-            response.EnsureSuccessStatusCode();
-            var body = await response.Content.ReadAsStringAsync();
-
-
-            res = JsonConvert.DeserializeObject(body);
-
-
-            foreach (var item in res.data)
-                if (item.is_nationality != "true")
-                    basketball.Add(item);
-        }
-        //euroleague
-        request = new HttpRequestMessage
-        {
-            Method = HttpMethod.Post,
-            RequestUri = new Uri("https://sportscore1.p.rapidapi.com/teams/search?section_id=182"),
-            Headers =
-{
-                            { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                            { "X-RapidAPI-Key", Global.API_KEY },
-                        },
-        };
-        using (var response = await client.SendAsync(request))
-        {
-            response.EnsureSuccessStatusCode();
-            var body = await response.Content.ReadAsStringAsync();
-
-
-            res = JsonConvert.DeserializeObject(body);
-
-
-            foreach (var item in res.data)
-                if (item.is_nationality != "true")
-                    basketball.Add(item);
-        }
-        isLoading = false;
+        isLoad = false;
     }
-    // nba = 7422,168 euro = 7473,182 israel = 7553,183
-
-
-    public async void addFavTeam(dynamic id)
+    async void Nav_To_Edit()
     {
-
-        var user = await userManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
-        user.FavTeam = id.ToString();
-        await userManager.UpdateAsync(user);        
-
+        isEdit = true;
+        await InvokeAsync(StateHasChanged);
     }
+    async void Nav_To_Fav()
+    {
+        isLoad = true;
+        isEdit = false;
+        await OnInitializedAsync();
+        isLoad = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
 }

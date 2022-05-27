@@ -89,6 +89,20 @@ using WebApplication1.Model;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\Home.razor"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\Home.razor"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
     public partial class Home : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -97,7 +111,7 @@ using WebApplication1.Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 573 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\Home.razor"
+#line 656 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\Home.razor"
        
     public dynamic res = null;
     public dynamic AllGames = new List<dynamic>();
@@ -110,8 +124,9 @@ using WebApplication1.Model;
     public dynamic searchList = new List<dynamic>();
     private bool loading = true;
     private string SearchValue = "";
-
-	
+    public dynamic gamesStatistic;
+    private string modalChange = "modal fade";
+    private bool isStandard;
 
     [Parameter]
     public string news { get; set; }
@@ -126,7 +141,7 @@ using WebApplication1.Model;
         searchList = new List<dynamic>();
         Console.WriteLine(AllGames.Count);
 
-        foreach(var item in AllGames)
+        foreach (var item in AllGames)
         {
             if (item.home_team.name.ToString().ToLower().Contains(SearchValue) || item.home_team.name.ToString().ToLower().Contains(SearchValue))
             {
@@ -143,13 +158,21 @@ using WebApplication1.Model;
     protected override async Task OnInitializedAsync()
     {
         //loading = true;
+        var user = await userManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
+        var Role = await userManager.GetRolesAsync(user);
+        isStandard = false;
+        if (Role.Contains("Standard"))
+        {
+            isStandard = true;
+        }
+
         var client = new HttpClient();
         var request = new HttpRequestMessage
         {
             Method = HttpMethod.Get,
             RequestUri = new Uri("https://sportscore1.p.rapidapi.com/events/live?page=1"),
             Headers =
-                {
+        {
                     { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
                     { "X-RapidAPI-Key", Global.API_KEY },
                 },
@@ -166,32 +189,38 @@ using WebApplication1.Model;
             foreach (var item in res.data)
             {
                 if (item.sport_id == 1)
-                    if (item.home_score != null && item.away_score != null) {
+                    if (item.home_score != null && item.away_score != null)
+                    {
                         if (item.home_score.current != null && item.away_score.current != null)
                             soccer.Add(item);
                     }
                 if (item.sport_id == 2)
-                    if (item.home_score != null && item.away_score != null) {
+                    if (item.home_score != null && item.away_score != null)
+                    {
                         if (item.home_score.current != null && item.away_score.current != null)
                             tennis.Add(item);
                     }
                 if (item.sport_id == 3)
-                    if (item.home_score != null && item.away_score != null) {
+                    if (item.home_score != null && item.away_score != null)
+                    {
                         if (item.home_score.current != null && item.away_score.current != null)
                             basketball.Add(item);
                     }
                 if (item.sport_id == 4)
-                    if (item.home_score != null && item.away_score != null) {
+                    if (item.home_score != null && item.away_score != null)
+                    {
                         if (item.home_score.current != null && item.away_score.current != null)
                             hockey.Add(item);
                     }
-                if (item.sport_id == 5){
-                    if(item.home_score.current != null && item.away_score.current != null)
+                if (item.sport_id == 5)
+                {
+                    if (item.home_score.current != null && item.away_score.current != null)
                         volleyball.Add(item);
                 }
                 if (item.sport_id == 6)
                 {
-                    if (item.home_score != null && item.away_score != null) {
+                    if (item.home_score != null && item.away_score != null)
+                    {
                         if (item.home_score.current != null && item.away_score.current != null)
                             handball.Add(item);
                     }
@@ -205,7 +234,7 @@ using WebApplication1.Model;
             Method = HttpMethod.Get,
             RequestUri = new Uri("https://sportscore1.p.rapidapi.com/events/live?page=2"),
             Headers =
-            {
+    {
                 { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
                 { "X-RapidAPI-Key", Global.API_KEY },
             },
@@ -240,12 +269,51 @@ using WebApplication1.Model;
         loading = false;
     }
 
+    private async Task GameStatistics(dynamic id)
+    {
+        //if (gamesStatistic != null)
+        //{
+        //    foreach (var data in gamesStatistic)
+        //    {
+        //        if (data.id == id)
+        //        {
+        //            return;
+        //        }
+        //    }
+        //}
+        //loading = true;
+        //InvokeAsync(StateHasChanged);
 
+        string uri = "https://sportscore1.p.rapidapi.com/events/" + id + "/statistics";
+        var client = new HttpClient();
+        var request = new HttpRequestMessage
+        {
+            Method = HttpMethod.Get,
+            RequestUri = new Uri(uri),
+            Headers =
+{
+        { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
+        { "X-RapidAPI-Key", Global.API_KEY},
+    },
+        };
+        using (var response = await client.SendAsync(request))
+        {
+            response.EnsureSuccessStatusCode();
+            var body = await response.Content.ReadAsStringAsync();
+            res = JsonConvert.DeserializeObject(body);
+            gamesStatistic = res.data;
+        }
+        modalChange = "modal active";
+        //loading = false;
+        InvokeAsync(StateHasChanged);
+    }
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor HttpContextAccessor { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private UserManager<ApplicationUser> userManager { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -111,138 +111,112 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 95 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\FavTeam.razor"
+#line 124 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\FavTeam.razor"
        
-
-    public dynamic res = null;
-    public dynamic AllGames = new List<dynamic>();
-    public dynamic soccer = new List<dynamic>();
-    public dynamic basketball = new List<dynamic>();
-
-    public dynamic searchList = new List<dynamic>();
-    private bool loading = true;
-    private string SearchValue = "";
-
-    public bool isLoading = true;
+    ApplicationUser user;
+    public bool isEdit ;
+    string id;
+    public dynamic res;
+    public dynamic favteam_home = new List<dynamic>();
+    public dynamic favteam_away = new List<dynamic>();
+    public bool isLoad { get; set; } = true;
 
     protected override async Task OnInitializedAsync()
     {
-        var client = new HttpClient();
+        isLoad = true;
+        user = await userManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
+        isEdit = !(user.FavTeam != null || user.FavTeam != "");
+        id = user.FavTeam;
+        string startDate = DateTime.UtcNow.AddDays(-8).ToString("yyyy-MM-dd");
+        string endDate = DateTime.UtcNow.AddDays(8).ToString("yyyy-MM-dd");
+        string uri = $"https://sportscore1.p.rapidapi.com/events/search?date_end={endDate}&date_start={startDate}&home_team_id={id}&page=1";
+        Console.WriteLine(startDate);
+        Console.WriteLine(endDate);
+        Console.WriteLine(uri);
 
-        var request = new HttpRequestMessage
+        //away_team_id=138
+        if(id != null)
         {
-            Method = HttpMethod.Get,
-            RequestUri = new Uri("https://sportscore1.p.rapidapi.com/sports/1/teams?page=1"),
-            Headers =
-{
-                            { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                            { "X-RapidAPI-Key", Global.API_KEY },
-                        },
-        };
-        using (var response = await client.SendAsync(request))
-        {
-            response.EnsureSuccessStatusCode();
-            var body = await response.Content.ReadAsStringAsync();
-
-
-            res = JsonConvert.DeserializeObject(body);
-
-
-            foreach (var item in res.data)
-                soccer.Add(item);
-
-
-        }
-
-        //israel league
-        request = new HttpRequestMessage
-        {
-            Method = HttpMethod.Post,
-            RequestUri = new Uri("https://sportscore1.p.rapidapi.com/teams/search?section_id=183"),
-            Headers =
-{
-                            { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                            { "X-RapidAPI-Key", Global.API_KEY },
-                        },
-        };
-        using (var response = await client.SendAsync(request))
-        {
-            response.EnsureSuccessStatusCode();
-            var body = await response.Content.ReadAsStringAsync();
-
-
-            res = JsonConvert.DeserializeObject(body);
-
-
-            foreach (var item in res.data)
-                if (item.is_nationality != "true")
-                    basketball.Add(item);
-        }
-        //nba
-        request = new HttpRequestMessage
-        {
-            Method = HttpMethod.Post,
-            RequestUri = new Uri("https://sportscore1.p.rapidapi.com/teams/search?section_id=168"),
-            Headers =
-{
-                            { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                            { "X-RapidAPI-Key", Global.API_KEY },
-                        },
-        };
-        using (var response = await client.SendAsync(request))
-        {
-            response.EnsureSuccessStatusCode();
-            var body = await response.Content.ReadAsStringAsync();
-
-
-            res = JsonConvert.DeserializeObject(body);
-
-
-            foreach (var item in res.data)
-                if (item.is_nationality != "true")
-                    basketball.Add(item);
-        }
-        //euroleague
-        request = new HttpRequestMessage
-        {
-            Method = HttpMethod.Post,
-            RequestUri = new Uri("https://sportscore1.p.rapidapi.com/teams/search?section_id=182"),
-            Headers =
-{
-                            { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
-                            { "X-RapidAPI-Key", Global.API_KEY },
-                        },
-        };
-        using (var response = await client.SendAsync(request))
-        {
-            response.EnsureSuccessStatusCode();
-            var body = await response.Content.ReadAsStringAsync();
-
-
-            res = JsonConvert.DeserializeObject(body);
-
-
-            foreach (var item in res.data)
-                if (item.is_nationality != "true")
-                    basketball.Add(item);
-        }
-        isLoading = false;
-    }
-    // nba = 7422,168 euro = 7473,182 israel = 7553,183
-
-
-    public async void addFavTeam(dynamic id)
-    {
-
-        var user = await userManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
-        user.FavTeam = id.ToString();
-        await userManager.UpdateAsync(user);        
-
-    }
+            uri = $"https://sportscore1.p.rapidapi.com/events/search?date_end={endDate}&date_start={startDate}&home_team_id={id}&page=1";
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri(uri),
+                Headers =
+                {
+                    { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
+                    { "X-RapidAPI-Key", Global.API_KEY},
+                },
+            };
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                var body = await response.Content.ReadAsStringAsync();
+                res = JsonConvert.DeserializeObject(body);
+                favteam_home = res.data;
+                
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 167 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\FavTeam.razor"
+                                           
+            }
+
+            //second request for away team
+
+            uri = $"https://sportscore1.p.rapidapi.com/events/search?date_end={endDate}&date_start={startDate}&away_team_id={id}&page=1";
+            client = new HttpClient();
+            request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri(uri),
+                Headers =
+                {
+                    { "X-RapidAPI-Host", "sportscore1.p.rapidapi.com" },
+                    { "X-RapidAPI-Key", Global.API_KEY},
+                },
+            };
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                var body = await response.Content.ReadAsStringAsync();
+                res = JsonConvert.DeserializeObject(body);
+                favteam_away = res.data;
+
+                
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 191 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\FavTeam.razor"
+                                           
+            }
+        }
+        isLoad = false;
+    }
+    async void Nav_To_Edit()
+    {
+        isEdit = true;
+        await InvokeAsync(StateHasChanged);
+    }
+    async void Nav_To_Fav()
+    {
+        isLoad = true;
+        isEdit = false;
+        await OnInitializedAsync();
+        isLoad = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor HttpContextAccessor { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private UserManager<ApplicationUser> userManager { get; set; }
     }

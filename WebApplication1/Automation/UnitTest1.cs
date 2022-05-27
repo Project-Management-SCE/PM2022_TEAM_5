@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using OpenQA.Selenium.Remote;
-// using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Firefox;
 
 namespace Automation
 {
@@ -29,11 +29,11 @@ namespace Automation
             //     firefoxService.Start();
 
 
-            ChromeOptions options = new ChromeOptions();
+            //ChromeOptions options = new ChromeOptions();
             //options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
             //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
             //options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
-            // FirefoxOptions options = new FirefoxOptions();
+            FirefoxOptions options = new FirefoxOptions();
             options.AddArgument("--headless");            
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //options.AddArguments("disable-infobars"); // disabling infobars
@@ -61,9 +61,9 @@ namespace Automation
             //Console.WriteLine(cliOut);
             string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
-            options.BinaryLocation = driverDirectory;
+            //options.BinaryLocation = driverDirectory;
             //Console.WriteLine("\n\n\tblahhhh\n\n");
-            _driver = new RemoteWebDriver(options);
+            _driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options);
             Console.WriteLine("\n\n\tend\n\n");
 
 

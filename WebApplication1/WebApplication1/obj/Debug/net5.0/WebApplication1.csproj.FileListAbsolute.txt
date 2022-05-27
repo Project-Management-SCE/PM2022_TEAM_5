@@ -731,3 +731,4 @@ C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplicat
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\Shared\Components\FavTeam.razor.g.cs
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\FavTeam.cshtml.g.cs
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\ContactUs.cshtml.g.cs
+C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Pages\Index1.cshtml.g.cs

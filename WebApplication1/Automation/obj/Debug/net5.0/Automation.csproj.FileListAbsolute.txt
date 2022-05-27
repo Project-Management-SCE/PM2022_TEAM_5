@@ -100,3 +100,5 @@ C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\obj\Debug\net5.0\Automation.pdb
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\obj\Debug\net5.0\Automation.genruntimeconfig.cache
 C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\bin\Debug\net5.0\chromedriver.exe
+C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\bin\Debug\net5.0\ThoughtWorks.Selenium.Core.dll
+C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\Automation\obj\Debug\net5.0\Automation.csproj.AssemblyReference.cache

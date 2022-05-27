@@ -65,7 +65,7 @@ namespace Automation
             options.BinaryLocation = driverDirectory;
             options.AcceptInsecureCertificates = true;
             //Console.WriteLine("\n\n\tblahhhh\n\n");
-            _driver = new RemoteWebDriver(new Uri("http://localhost:4444/"), options);
+            _driver = new RemoteWebDriver(new Uri("http://localhost:4444/"), options.ToCapabilities());
             Console.WriteLine("\n\n\tend\n\n");
 
 

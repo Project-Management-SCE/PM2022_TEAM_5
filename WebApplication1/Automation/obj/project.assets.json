@@ -445,6 +445,15 @@
           "build/Selenium.Firefox.WebDriver.targets": {}
         }
       },
+      "Selenium.RC/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {}
+        }
+      },
       "Selenium.WebDriver/4.1.1": {
         "type": "package",
         "dependencies": {
@@ -2049,6 +2058,21 @@
         "driver/geckodriver.exe",
         "selenium.firefox.webdriver.0.27.0.nupkg.sha512",
         "selenium.firefox.webdriver.nuspec"
+      ]
+    },
+    "Selenium.RC/3.1.0": {
+      "sha512": "PVfriRaQoorRtRw2I41hn0WhkmKoAYQHsV+AuYy3L32l9uCJg7aeQwaq3O6QXykZIi00TF9+Jeiah38/kYT4HA==",
+      "type": "package",
+      "path": "selenium.rc/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/ThoughtWorks.Selenium.Core.dll",
+        "lib/net35/ThoughtWorks.Selenium.Core.xml",
+        "lib/net40/ThoughtWorks.Selenium.Core.dll",
+        "lib/net40/ThoughtWorks.Selenium.Core.xml",
+        "selenium.rc.3.1.0.nupkg.sha512",
+        "selenium.rc.nuspec"
       ]
     },
     "Selenium.WebDriver/4.1.1": {
@@ -4266,6 +4290,7 @@
       "NUnit >= 3.13.1",
       "NUnit3TestAdapter >= 3.17.0",
       "Selenium.Firefox.WebDriver >= 0.27.0",
+      "Selenium.RC >= 3.1.0",
       "Selenium.WebDriver >= 4.1.1",
       "Selenium.WebDriver.ChromeDriver >= 101.0.4951.4100",
       "coverlet.collector >= 3.0.2"
@@ -4334,6 +4359,10 @@
             "target": "Package",
             "version": "[0.27.0, )"
           },
+          "Selenium.RC": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
           "Selenium.WebDriver": {
             "target": "Package",
             "version": "[4.1.1, )"
@@ -4365,5 +4394,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Selenium.RC 3.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Selenium.RC",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

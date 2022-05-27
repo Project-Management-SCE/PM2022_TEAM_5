@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qf70HkMLwspiXa2mPiqeWyqpp6Gxy1NSQDjg+F1x+d0RFYBh/un3zN/yYM4hNaMK6jSpsf4mDUR4/8RxVKMkUw==",
+  "dgSpecHash": "3WCIHZlcFbzpqwk0s/+j+5uGQqib5vKbsG34kCqOTzykp4109NRD/5lNqI2DXBx06/hU9MSW8q1KtaXFNm/Bpg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Eliran\\Desktop\\Sport api\\PM2022_TEAM_5-main\\WebApplication1\\Automation\\Automation.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\Eliran\\.nuget\\packages\\nunit3testadapter\\3.17.0\\nunit3testadapter.3.17.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Eliran\\.nuget\\packages\\selenium.firefox.webdriver\\0.27.0\\selenium.firefox.webdriver.0.27.0.nupkg.sha512",
+    "C:\\Users\\Eliran\\.nuget\\packages\\selenium.rc\\3.1.0\\selenium.rc.3.1.0.nupkg.sha512",
     "C:\\Users\\Eliran\\.nuget\\packages\\selenium.webdriver\\4.1.1\\selenium.webdriver.4.1.1.nupkg.sha512",
     "C:\\Users\\Eliran\\.nuget\\packages\\selenium.webdriver.chromedriver\\101.0.4951.4100\\selenium.webdriver.chromedriver.101.0.4951.4100.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.appcontext\\4.1.0\\system.appcontext.4.1.0.nupkg.sha512",
@@ -63,5 +64,16 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
     "C:\\Users\\Eliran\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Selenium.RC 3.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Selenium.RC",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

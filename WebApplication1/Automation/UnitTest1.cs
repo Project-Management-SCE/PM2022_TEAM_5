@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using System;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Firefox;
+using Selenium;
 
 namespace Automation
 {
@@ -18,6 +19,7 @@ namespace Automation
         [SetUp]
         public void Setup()
         {
+            ISelenium selenium = new DefaultSelenium("localhost", 4444, "*firefox", URL);
 
             // var chromeService = ChromeDriverService.CreateDefaultService();
             //chromeService.SuppressInitialDiagnosticInformation = true;
@@ -35,14 +37,14 @@ namespace Automation
             //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
             //options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
             //FirefoxOptions options = new FirefoxOptions();
-            options.AddArgument("headless");            
+            options.AddArguments("headless");            
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //options.AddArguments("disable-infobars"); // disabling infobars
             //options.AddArguments("disable-extensions"); // disabling extensions
             //options.AddArgument("disable-gpu"); // applicable to windows os only
-            options.AddArgument("disable-dev-shm-usage"); // overcome limited resource problems
-            options.AddArgument("no-sandbox"); // Bypass OS security model
-            options.AddArgument("whitelisted-ips");
+            options.AddArguments("disable-dev-shm-usage"); // overcome limited resource problems
+            options.AddArguments("no-sandbox"); // Bypass OS security model
+            options.AddArguments("whitelisted-ips");
 
             //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             // Start the child process.

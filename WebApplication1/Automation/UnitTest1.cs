@@ -48,9 +48,9 @@ namespace Automation
             string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             options.BinaryLocation = driverDirectory;
             options.AcceptInsecureCertificates = true;
-            _driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
+            //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
             //Console.WriteLine("\n\n\tblahhhh\n\n");
-            //_driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"),options.ToCapabilities());
+            _driver = new RemoteWebDriver(new Uri("http://127.0.0.1:4444/wd/hub"), options.ToCapabilities());
             Console.WriteLine("\n\n\tend\n\n");
 
 

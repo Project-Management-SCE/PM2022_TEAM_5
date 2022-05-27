@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 using System;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Firefox;
-using Selenium;
+
 
 namespace Automation
 {
@@ -19,8 +19,7 @@ namespace Automation
         [SetUp]
         public void Setup()
         {
-            ISelenium selenium = new DefaultSelenium("localhost", 4444, "*firefox", URL);
-            Console.WriteLine(selenium.GetTitle());
+
             // var chromeService = ChromeDriverService.CreateDefaultService();
             //chromeService.SuppressInitialDiagnosticInformation = true;
             //if (!chromeService.IsRunning)
@@ -32,43 +31,25 @@ namespace Automation
             //     firefoxService.Start();
 
 
-            //ChromeOptions options = new ChromeOptions();
-            ////options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
-            ////options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
-            ////options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
-            ////FirefoxOptions options = new FirefoxOptions();
-            //options.AddArguments("headless");            
-            //////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            ////options.AddArguments("disable-infobars"); // disabling infobars
-            ////options.AddArguments("disable-extensions"); // disabling extensions
-            ////options.AddArgument("disable-gpu"); // applicable to windows os only
-            //options.AddArguments("disable-dev-shm-usage"); // overcome limited resource problems
-            //options.AddArguments("no-sandbox"); // Bypass OS security model
-            //options.AddArguments("whitelisted-ips");
-
-            ////string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            //// Start the child process.
-            ////var cliProcess = new System.Diagnostics.Process()
-            ////{
-            ////    StartInfo = new System.Diagnostics.ProcessStartInfo("sh", "sh --help")
-            ////    {
-            ////        UseShellExecute = false,
-            ////        RedirectStandardOutput = true
-            ////    }
-            ////};
-            ////cliProcess.Start();
-            ////string cliOut = cliProcess.StandardOutput.ReadToEnd();
-            ////Console.WriteLine(cliOut);
-            ////cliProcess.WaitForExit();
-            ////Console.WriteLine(cliOut);
-            ////cliProcess.Close();
-            ////Console.WriteLine(cliOut);
-            //string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            ////_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
-            //options.BinaryLocation = driverDirectory;
-            //options.AcceptInsecureCertificates = true;
-            ////Console.WriteLine("\n\n\tblahhhh\n\n");
-            //_driver = new RemoteWebDriver(options.ToCapabilities());
+            ChromeOptions options = new ChromeOptions();
+            //options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
+            //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
+            //options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
+            //FirefoxOptions options = new FirefoxOptions();
+            options.AddArguments("headless");
+            ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            //options.AddArguments("disable-infobars"); // disabling infobars
+            //options.AddArguments("disable-extensions"); // disabling extensions
+            //options.AddArgument("disable-gpu"); // applicable to windows os only
+            options.AddArguments("disable-dev-shm-usage"); // overcome limited resource problems
+            options.AddArguments("no-sandbox"); // Bypass OS security model
+            options.AddArguments("whitelisted-ips");
+            string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
+            options.BinaryLocation = driverDirectory;
+            options.AcceptInsecureCertificates = true;
+            //Console.WriteLine("\n\n\tblahhhh\n\n");
+            _driver = new RemoteWebDriver(options.ToCapabilities());
             Console.WriteLine("\n\n\tend\n\n");
 
 

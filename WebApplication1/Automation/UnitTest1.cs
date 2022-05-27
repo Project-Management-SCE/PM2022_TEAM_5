@@ -29,11 +29,11 @@ namespace Automation
             //     firefoxService.Start();
 
 
-            //ChromeOptions options = new ChromeOptions();
+            ChromeOptions options = new ChromeOptions();
             //options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
             //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
             //options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
-            FirefoxOptions options = new FirefoxOptions();
+            //FirefoxOptions options = new FirefoxOptions();
             options.AddArgument("--headless");            
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //options.AddArguments("disable-infobars"); // disabling infobars
@@ -42,6 +42,7 @@ namespace Automation
             options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
             options.AddArgument("--no-sandbox"); // Bypass OS security model
             options.AddArgument("--whitelisted-ips");
+
             //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             // Start the child process.
             //var cliProcess = new System.Diagnostics.Process()

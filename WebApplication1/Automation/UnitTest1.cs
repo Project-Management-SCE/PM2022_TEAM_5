@@ -18,6 +18,17 @@ namespace Automation
         [SetUp]
         public void Setup()
         {
+            WebDriver driver = new ChromeDriver();
+            ICapabilities caps = driver.Capabilities;
+
+            string browserName = string.Empty;
+            if (caps.HasCapability("browserName"))
+            {
+                browserName = caps.GetCapability("browserName").ToString();
+            }
+
+            Console.WriteLine(browserName);
+            Console.WriteLine(caps.GetCapability("browserVersion"));
             // var chromeService = ChromeDriverService.CreateDefaultService();
             //chromeService.SuppressInitialDiagnosticInformation = true;
             //if (!chromeService.IsRunning)

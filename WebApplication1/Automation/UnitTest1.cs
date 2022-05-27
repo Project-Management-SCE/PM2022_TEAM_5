@@ -35,7 +35,7 @@ namespace Automation
             //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
             //options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
             FirefoxOptions options = new FirefoxOptions();
-            options.AddArgumen("headless");            
+            options.AddArgument("headless");            
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //options.AddArguments("disable-infobars"); // disabling infobars
             //options.AddArguments("disable-extensions"); // disabling extensions

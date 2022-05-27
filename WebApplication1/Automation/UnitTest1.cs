@@ -43,14 +43,14 @@ namespace Automation
             //options.AddArgument("disable-gpu"); // applicable to windows os only
             options.AddArguments("--disable-dev-shm-usage"); // overcome limited resource problems
             options.AddArguments("--no-sandbox"); // Bypass OS security model
-            options.AddArguments("--whitelisted-ips");
+            //options.AddArguments("--whitelisted-ips");
             options.AddArguments("--verbose");
             string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
             options.BinaryLocation = driverDirectory;
             options.AcceptInsecureCertificates = true;
+            _driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
             //Console.WriteLine("\n\n\tblahhhh\n\n");
-            _driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"),options.ToCapabilities());
+            //_driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"),options.ToCapabilities());
             Console.WriteLine("\n\n\tend\n\n");
 
 

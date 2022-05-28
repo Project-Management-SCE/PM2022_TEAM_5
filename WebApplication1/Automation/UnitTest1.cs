@@ -64,7 +64,7 @@ namespace Automation
             //Console.WriteLine(cliOut);
             //cliProcess.Close();
             // var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub/"), options.ToCapabilities(), TimeSpan.FromMinutes(5));
-            var driver = new RemoteWebDriver(new Uri("http://localhost:4444",options.ToCapabilities()));
+            var driver = new RemoteWebDriver(new Uri("http://localhost:4444"),options.ToCapabilities());
 
 
            driver.Navigate().GoToUrl(URL);

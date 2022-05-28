@@ -71,20 +71,20 @@ namespace Automation
 
         //    driver.Quit();
 
-            //Console.WriteLine(cliOut);
-            string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
-            options.BinaryLocation = driverDirectory;
-            //Console.WriteLine("\n\n\tblahhhh\n\n");
-            _driver = new RemoteWebDriver(options);
-            Console.WriteLine("\n\n\tend\n\n");
+        //     //Console.WriteLine(cliOut);
+        //     string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        //     //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
+        //     options.BinaryLocation = driverDirectory;
+        //     //Console.WriteLine("\n\n\tblahhhh\n\n");
+        //     _driver = new RemoteWebDriver(options);
+        //     Console.WriteLine("\n\n\tend\n\n");
 
 
-            _driver = new ChromeDriver(options);
-            _driver.Navigate().GoToUrl(PATH);
+        //     _driver = new ChromeDriver(options);
+        //     _driver.Navigate().GoToUrl(PATH);
 
-            _driver2 = new FirefoxDriver(options);
-        }
+        //     _driver2 = new FirefoxDriver(options);
+        // }
 
         [Test]
         public void VerifyLoginAndHomeAndLogout()        

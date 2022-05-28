@@ -39,11 +39,11 @@ pipeline {
                     //        }
                     //     }
                      
-	                   stage('Automation'){	                   					               
-	                        steps {                   			                               
-	                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
-		                       }
-	                   }
+	                //    stage('Automation'){	                   					               
+	                //         steps {                   			                               
+	                //               sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
+		            //            }
+	                //    }
                        
    
                }

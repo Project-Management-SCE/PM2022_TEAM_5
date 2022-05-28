@@ -4,7 +4,7 @@ pipeline {
         dotnet ='C:\\Program Files (x86)\\dotnet\\'
         DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
         tools = "tmp/DOTNET_CLI_HOME/.dotnet/tools"      
-         PATH="${env.PATH}:/tmp/DOTNET_CLI_HOME/.dotnet/tools"     
+         PATH="${PATH}:/tmp/DOTNET_CLI_HOME/.dotnet/tools"     
         }
     triggers {
     	 pollSCM 'H * * * *'

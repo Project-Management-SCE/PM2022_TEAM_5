@@ -64,20 +64,20 @@ namespace Automation
             //Console.WriteLine(cliOut);
             //cliProcess.Close();
             // var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub/"), options.ToCapabilities(), TimeSpan.FromMinutes(5));
-            var driver = new RemoteWebDriver(new Uri("http://localhost:4444",options.ToCapabilities()));
+            // var driver = new RemoteWebDriver(new Uri("http://localhost:4444",options.ToCapabilities()));
 
 
            driver.Navigate().GoToUrl(URL);
 
         //    driver.Quit();
 
-        //     //Console.WriteLine(cliOut);
-        //     string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-        //     //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
-        //     options.BinaryLocation = driverDirectory;
-        //     //Console.WriteLine("\n\n\tblahhhh\n\n");
-        //     _driver = new RemoteWebDriver(options);
-        //     Console.WriteLine("\n\n\tend\n\n");
+            //Console.WriteLine(cliOut);
+            string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
+            options.BinaryLocation = driverDirectory;
+            //Console.WriteLine("\n\n\tblahhhh\n\n");
+            _driver = new RemoteWebDriver(options);
+            Console.WriteLine("\n\n\tend\n\n");
 
 
         //     _driver = new ChromeDriver(options);

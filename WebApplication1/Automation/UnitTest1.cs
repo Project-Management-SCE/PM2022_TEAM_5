@@ -69,7 +69,7 @@ namespace Automation
 
            driver.Navigate().GoToUrl(URL);
 
-           driver.Quit();
+        //    driver.Quit();
 
             // //Console.WriteLine(cliOut);
             // string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);

@@ -42,7 +42,7 @@ namespace WebApplication1.Pages
                 var identity = await signInManager.PasswordSignInAsync(user.UserName, Model.Password, Model.RememberMe, false);
                 if (identity.Succeeded)
                 {
-                    //session to use user data in other pages
+                    //session to use user data in other pages                    
                     HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));
 
                     if (returnUrl == null || returnUrl == "/")

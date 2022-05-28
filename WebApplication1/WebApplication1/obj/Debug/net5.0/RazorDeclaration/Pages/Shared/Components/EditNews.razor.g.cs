@@ -13,70 +13,70 @@ namespace WebApplication1.Pages.Shared.Components
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
+#line 1 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
+#line 2 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
+#line 3 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
+#line 4 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
+#line 5 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
+#line 6 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
+#line 7 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
+#line 8 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\_Imports.razor"
 using System.IO;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\EditNews.razor"
+#line 1 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\EditNews.razor"
 using WebApplication1.Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\EditNews.razor"
+#line 3 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\EditNews.razor"
 using WebApplication1.ViewModel;
 
 #line default
@@ -90,7 +90,7 @@ using WebApplication1.ViewModel;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\Users\attia\Desktop\TEAM_5\PM2022_TEAM_5\WebApplication1\WebApplication1\Pages\Shared\Components\EditNews.razor"
+#line 38 "C:\Users\Eliran\Desktop\Sport api\PM2022_TEAM_5-main\WebApplication1\WebApplication1\Pages\Shared\Components\EditNews.razor"
        
     //public NewsContext News = News1;
     public ViewModel.EditNews Model = new ViewModel.EditNews();

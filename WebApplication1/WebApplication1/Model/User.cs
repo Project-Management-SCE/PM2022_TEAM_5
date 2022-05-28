@@ -13,6 +13,6 @@ namespace WebApplication1.Model
         [Required]
         [DataType(DataType.Password)]
         public string pass { get; set; }
-
+       
     }
 }

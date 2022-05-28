@@ -35,6 +35,7 @@ namespace WebApplication1
             services.AddMemoryCache();
             //services.AddDefaultIdentity<ApplicationUser>()
             services.AddScoped<NewsService>();
+
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
             services.AddDbContext<NewsContext>(option => option.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
 
@@ -58,7 +59,7 @@ namespace WebApplication1
                 app.UseWebAssemblyDebugging();
             }
             else
-            {
+            {                
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();

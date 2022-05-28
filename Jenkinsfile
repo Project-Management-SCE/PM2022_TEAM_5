@@ -13,13 +13,17 @@ pipeline {
                agent{
                       docker{                                                       
                              image 'mcr.microsoft.com/dotnet/sdk:6.0'
+                             args '-u root'
+
                       }  
                       // dockerfile true                    
                }
                                   
                stages{ 
                        stage('Restore packages'){
-                         steps{                        
+                         steps{                   
+                             sh 'apt-get install sloccount'
+                             sh 'apt-get install cloc'            
                              sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
                           }
                        }

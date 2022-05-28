@@ -49,8 +49,8 @@ pipeline {
                        stage('Coverage Test'){	                   					               
 	                        steps {                   			                               
 	                              sh 'dotnet tool install -g coverlet.console'
-	                              sh 'coverlet ./WebApplication1/unitTest/bin/Debug/net5.0/unitTest.dll --target "dotnet" --targetargs "test --no-build" --exclude "[*]WebApplication1*"'
-
+	                            //   sh 'coverlet ./WebApplication1/unitTest/bin/Debug/net5.0/unitTest.dll --target "dotnet" --targetargs "test --no-build" --exclude "[*]WebApplication1*"'
+                              sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore /p:CollectCoverage=true /maxcpucount:1 '
 		                       }
 	                   }
                        

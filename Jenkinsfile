@@ -33,18 +33,18 @@ pipeline {
                              sh 'dotnet build ./WebApplication1/WebApplication1.sln --no-restore --configuration Release'
                           }
                        }
-                     /*stage('Test: Unit Test'){      
-                         steps {
-                              sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore'
-                           }
-                        }
+                    //  stage('Test: Unit Test'){      
+                    //      steps {
+                    //           sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore'
+                    //        }
+                    //     }
                      
 	                   stage('Automation'){	                   					               
 	                        steps {                   			                               
 	                              sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
 		                       }
 	                   }
-                       */
+                       
    
                }
         }          

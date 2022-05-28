@@ -22,7 +22,6 @@ pipeline {
                stages{ 
                        stage('Restore packages'){
                          steps{                   
-                             sh 'sudo apt-get install cloc'            
                              sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
                           }
                        }
@@ -47,6 +46,13 @@ pipeline {
 	                //               sh 'dotnet test ./WebApplication1/Automation/Automation.csproj'
 		            //            }
 	                //    }
+                       stage('Coverage Test'){	                   					               
+	                        steps {                   			                               
+	                              sh 'dotnet tool install -g coverlet.console'
+	                              sh 'coverlet ./WebApplication1/unitTest/bin/Debug/net5.0/unitTest.dll --target "dotnet" --targetargs "test --no-build" --exclude "[*]WebApplication1*"'
+
+		                       }
+	                   }
                        
    
                }

@@ -3,8 +3,7 @@ pipeline {
     environment {
         dotnet ='C:\\Program Files (x86)\\dotnet\\'
         DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
-        // tools = "tmp/DOTNET_CLI_HOME/.dotnet/tools"
-        PATH="/tmp/DOTNET_CLI_HOME/.dotnet/tools"
+        tools = "tmp/DOTNET_CLI_HOME/.dotnet/tools"        
         }
     triggers {
     	 pollSCM 'H * * * *'
@@ -20,7 +19,9 @@ pipeline {
                       }  
                       // dockerfile true                    
                }
-                                  
+                environment {
+                PATH="$PATH:/tmp/DOTNET_CLI_HOME/.dotnet/tools"        
+                }         
                stages{ 
                        stage('Restore packages'){
                          steps{                   

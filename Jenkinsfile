@@ -18,10 +18,7 @@ pipeline {
 
                       }  
                       // dockerfile true                    
-               }
-                environment {
-                PATH="$PATH:/tmp/DOTNET_CLI_HOME/.dotnet/tools"        
-                }         
+               }                        
                stages{ 
                        stage('Restore packages'){
                          steps{                   

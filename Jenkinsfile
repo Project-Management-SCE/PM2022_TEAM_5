@@ -22,7 +22,7 @@ pipeline {
                stages{ 
                        stage('Restore packages'){
                          steps{                   
-                             sh 'apt-get install cloc'            
+                             sh 'sudo apt-get install cloc'            
                              sh 'dotnet restore ./WebApplication1/WebApplication1.sln'
                           }
                        }

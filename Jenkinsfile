@@ -3,7 +3,7 @@ pipeline {
     environment {
         dotnet ='C:\\Program Files (x86)\\dotnet\\'
         DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
-        PATH="$PATH:/tmp/DOTNET_CLI_HOME/.dotnet/tools"
+        // PATH="$PATH:/tmp/DOTNET_CLI_HOME/.dotnet/tools"
 
         }
     triggers {
@@ -49,7 +49,7 @@ pipeline {
 	                //    }
                        stage('Coverage Test'){	                   					               
 	                        steps {         
-                                withEnv(["HOME=${env.PATH}"]){          			                               
+                                withEnv(["HOME=${env.DOTNET_CLI_HOME}"]){          			                               
 	                              sh 'dotnet tool install -g coverlet.console'
 	                              sh 'coverlet ./WebApplication1/unitTest/bin/Debug/net5.0/unitTest.dll --target "dotnet" --targetargs "test --no-build" --exclude "[*]WebApplication1*"'
                                 }

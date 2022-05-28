@@ -28,13 +28,18 @@ namespace Automation
             // if (!firefoxService.IsRunning)
             //     firefoxService.Start();
 
+           Console.WriteLine("Started");
 
+
+           
+
+           Console.WriteLine("Finish");
             ChromeOptions options = new ChromeOptions();
             //options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
             //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
             //options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
             // FirefoxOptions options = new FirefoxOptions();
-            options.AddArgument("--headless");            
+            options.AddArgument("--headless");     
             ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //options.AddArguments("disable-infobars"); // disabling infobars
             //options.AddArguments("disable-extensions"); // disabling extensions
@@ -58,13 +63,19 @@ namespace Automation
             //cliProcess.WaitForExit();
             //Console.WriteLine(cliOut);
             //cliProcess.Close();
-            //Console.WriteLine(cliOut);
-            string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
-            options.BinaryLocation = driverDirectory;
-            //Console.WriteLine("\n\n\tblahhhh\n\n");
-            _driver = new RemoteWebDriver(options);
-            Console.WriteLine("\n\n\tend\n\n");
+            var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub/"), options.ToCapabilities(), TimeSpan.FromMinutes(5));
+
+           driver.Navigate().GoToUrl(URL);
+
+           driver.Quit();
+
+            // //Console.WriteLine(cliOut);
+            // string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            // //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
+            // options.BinaryLocation = driverDirectory;
+            // //Console.WriteLine("\n\n\tblahhhh\n\n");
+            // _driver = new RemoteWebDriver(options);
+            // Console.WriteLine("\n\n\tend\n\n");
 
 
             //_driver = new ChromeDriver(options);

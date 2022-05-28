@@ -49,11 +49,11 @@ pipeline {
 	                //    }
                        stage('Coverage Test'){	                   					               
 	                        steps {         
-                                withEnv(["HOME=${env.DOTNET_CLI_HOME}"]){          			                               
+                                        			                               
 	                              sh 'dotnet tool install -g coverlet.console'
 	                              sh 'echo export PATH="$PATH:/tmp/DOTNET_CLI_HOME/.dotnet/tools"'
                                   sh 'coverlet ./WebApplication1/unitTest/bin/Debug/net5.0/unitTest.dll --target "dotnet" --targetargs "test --no-build" --exclude "[*]WebApplication1*"'
-                                }
+                                
                             //   sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore /p:CollectCoverage=true /p:Exclude="[*]WebApplication1*" /p:CoverletOutput="../coverage.json" /p:MergeWith="../coverage.json" /maxcpucount:1 '
                             //   sh 'cat ./WebApplication1/unitTest/coverage.json'
 		                       }

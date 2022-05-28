@@ -14,95 +14,121 @@ namespace Automation
         private const string URL = "http://sportapisce.herokuapp.com/";
         private const string userName = "admin";
         private const string password = "Asd123!";
+        private const string StandardUser = "standard22";
+        private const string VipUser = "vip";
 
         [SetUp]
         public void Setup()
         {
-            // var chromeService = ChromeDriverService.CreateDefaultService();
-            //chromeService.SuppressInitialDiagnosticInformation = true;
-            //if (!chromeService.IsRunning)
-            //    chromeService.Start();
-
-            // var firefoxService  = FirefoxDriverService.CreateDefaultService();
-            // firefoxService.SuppressInitialDiagnosticInformation = true;
-            // if (!firefoxService.IsRunning)
-            //     firefoxService.Start();
-
-           Console.WriteLine("Started");
-
-
-           
-
-           Console.WriteLine("Finish");
-            ChromeOptions options = new ChromeOptions();
-            //options.AddAdditionalChromeOption("network.proxy.http", "93.180.7.246");
-            //options.AddAdditionalChromeOption("network.proxy.http_port", "8080");
-            //options.AddAdditionalCapability(CapabilityType.WebSocketUrl, "http://127.0.0.1:4444");
-            // FirefoxOptions options = new FirefoxOptions();
-            options.AddArgument("--headless");     
-            ////options.BinaryLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            //options.AddArguments("disable-infobars"); // disabling infobars
-            //options.AddArguments("disable-extensions"); // disabling extensions
-            options.AddArgument("disable-gpu"); // applicable to windows os only
-            options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
-            options.AddArgument("--no-sandbox"); // Bypass OS security model
-            options.AddArgument("--whitelisted-ips");
-            //string loc =  System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            // Start the child process.
-            //var cliProcess = new System.Diagnostics.Process()
-            //{
-            //    StartInfo = new System.Diagnostics.ProcessStartInfo("sh", "sh --help")
-            //    {
-            //        UseShellExecute = false,
-            //        RedirectStandardOutput = true
-            //    }
-            //};
-            //cliProcess.Start();
-            //string cliOut = cliProcess.StandardOutput.ReadToEnd();
-            //Console.WriteLine(cliOut);
-            //cliProcess.WaitForExit();
-            //Console.WriteLine(cliOut);
-            //cliProcess.Close();
-            // var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub/"), options.ToCapabilities(), TimeSpan.FromMinutes(5));
-            var driver = new RemoteWebDriver(new Uri("http://localhost:4444/"),options);
-
-
-           driver.Navigate().GoToUrl(URL);
-
-        //    driver.Quit();
-
-            // //Console.WriteLine(cliOut);
-            // string driverDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            // //_driver = new ChromeDriver(driverDirectory, options, TimeSpan.FromSeconds(10));
-            // options.BinaryLocation = driverDirectory;
-            // //Console.WriteLine("\n\n\tblahhhh\n\n");
-            // _driver = new RemoteWebDriver(options);
-            // Console.WriteLine("\n\n\tend\n\n");
-
-
-        //     _driver = new ChromeDriver(options);
-        //     _driver.Navigate().GoToUrl(PATH);
-
-        //     _driver2 = new FirefoxDriver(options);
+            _driver = new ChromeDriver();
         }
 
         [Test]
-        public void VerifyLoginAndHomeAndLogout()        
+        public void TestLoginAndHomeAndLogout()        
         {
-
             const string title = "Home page - Sport Api S.C.E";
-            // _driver.Url = URL;
             _driver.Navigate().GoToUrl(URL);
             _driver.FindElement(By.Id("Model_EmailOrUserName")).SendKeys(userName);
-            //_driver.FindElement(By.Id("Model_EmailOrUserName")).SendKeys(userName);
             _driver.FindElement(By.Id("Model_Password")).SendKeys(password);
-            _driver.FindElement(By.ClassName("btn-primary")).Click();            
+            _driver.FindElement(By.ClassName("btn-primary")).Click();
             string HomeTitle = string.Copy(_driver.Title);
             Assert.AreEqual(HomeTitle, title);
-            _driver.FindElement(By.Id("Logout")).Click();
+            Assert.NotNull(_driver.FindElements(By.XPath("//a[@href='#tennis']")));
             Assert.AreEqual(_driver.Title, "- Sport Api S.C.E");
-           
         }
+        [Test]
+        public void TestSoccerApi()
+        {
+            _driver.Navigate().GoToUrl(URL);
+            _driver.FindElement(By.Id("Model_EmailOrUserName")).SendKeys(userName);
+            _driver.FindElement(By.Id("Model_Password")).SendKeys(password);
+            _driver.FindElement(By.ClassName("btn-primary")).Click();            
+            Assert.NotNull(_driver.FindElement(By.XPath("//div[@class='match']")));
+        }
+
+        [Test]
+        public void TestStandardUserLimit()
+        {
+            _driver.Navigate().GoToUrl(URL);
+            _driver.FindElement(By.Id("Model_EmailOrUserName")).SendKeys(StandardUser);
+            _driver.FindElement(By.Id("Model_Password")).SendKeys(password);
+            _driver.FindElement(By.ClassName("btn-primary")).Click();
+            Assert.NotNull(_driver.FindElements(By.Id("userpanel")));
+            Assert.NotNull(_driver.FindElements(By.XPath("//a[@href='#soccer']")));
+            Assert.IsFalse(_driver.FindElements(By.XPath("//a[@href='#tennis']")).Count>0);
+            Assert.IsEmpty(_driver.FindElements(By.Id("leagues")));
+            Assert.IsEmpty(_driver.FindElements(By.Id("favourite_team")));
+            Assert.IsEmpty(_driver.FindElements(By.Id("adminpanel")));
+        }
+
+        //[Test]
+        public void TestVipUserLimit()
+        {
+            _driver.Navigate().GoToUrl(URL);
+            _driver.FindElement(By.Id("Model_EmailOrUserName")).SendKeys(VipUser);
+            _driver.FindElement(By.Id("Model_Password")).SendKeys(password);
+            _driver.FindElement(By.ClassName("btn-primary")).Click();
+            Assert.NotNull(_driver.FindElements(By.Id("userpanel")));
+            Assert.NotNull(_driver.FindElements(By.XPath("//a[@href='#soccer']")));
+            Assert.NotNull(_driver.FindElements(By.XPath("//a[@href='#tennis']")));
+            Assert.NotNull(_driver.FindElements(By.Id("leagues")));
+            Assert.NotNull(_driver.FindElements(By.Id("favourite_team")));
+            Assert.IsEmpty(_driver.FindElements(By.Id("adminpanel")));
+        }
+
+
+        [Test]
+        public void TestRegister()
+        {
+            string testUsername = "automationuser";
+            string email = "automation@e.com";
+            
+            _driver.Navigate().GoToUrl(URL);
+            _driver.FindElement(By.Id("register")).Click();
+            _driver.FindElement(By.XPath("//input[@name='Model.UserName']")).SendKeys(testUsername);
+            _driver.FindElement(By.XPath("//input[@name='Model.Email']")).SendKeys(email);
+            _driver.FindElement(By.XPath("//input[@name='Model.Password']")).SendKeys(password);
+            _driver.FindElement(By.XPath("//input[@name='Model.ConfirmPassword']")).SendKeys(password);
+            _driver.FindElement(By.XPath("//button[text()='Register']")).Click();
+            Assert.AreEqual("Home page - Sport Api S.C.E", _driver.Title);
+        }
+
+        [Test]
+        public void VerifyAdminPanelEditNewsAndDeleteUser()
+        {
+            _driver.Navigate().GoToUrl(URL);
+            _driver.FindElement(By.Id("Model_EmailOrUserName")).SendKeys(userName);
+            _driver.FindElement(By.Id("Model_Password")).SendKeys(password);
+            _driver.FindElement(By.ClassName("btn-primary")).Click();
+            Assert.IsNotEmpty(_driver.FindElements(By.Id("adminPanel")));
+            _driver.FindElement(By.Id("adminPanel")).Click();
+            _driver.FindElement(By.XPath("//a[@href='/EditNews']")).Click();
+            _driver.FindElement(By.Id("Text")).SendKeys("text from automation test");
+            _driver.FindElement(By.XPath("//button[text()='Edit News']")).Click();
+            System.Threading.Thread.Sleep(1000);
+            _driver.FindElement(By.XPath("//a[text()='Home']")).Click();
+            Assert.AreEqual(_driver.FindElement(By.TagName("marquee")).Text, "text from automation test");
+            _driver.FindElement(By.Id("adminPanel")).Click();
+            _driver.FindElement(By.XPath("//a[text()='Delete Users']")).Click();
+            _driver.FindElement(By.XPath("//button[@formaction='/DeleteUsers?email=automation@e.com']")).Click();
+            Assert.AreEqual(_driver.FindElement(By.XPath("//strong[text()='User Deleted Successfuly']")).Text, "User Deleted Successfuly");
+        }
+
+        [Test]
+        public void TestFavouriteTeam()
+        {
+            _driver.Navigate().GoToUrl(URL);
+            _driver.FindElement(By.Id("Model_EmailOrUserName")).SendKeys(VipUser);
+            _driver.FindElement(By.Id("Model_Password")).SendKeys(password);
+            _driver.FindElement(By.ClassName("btn-primary")).Click();
+            _driver.FindElement(By.XPath("//a[@href='/FavTeam']")).Click();
+            System.Threading.Thread.Sleep(2000);
+            _driver.FindElement(By.XPath("//button[text()='Edit Favourite Team']")).Click();
+            System.Threading.Thread.Sleep(2000);
+            _driver.FindElement(By.Id("4")).Click();                        
+            Assert.NotNull(_driver.FindElement(By.XPath("//div[@class='toast-body']")));
+        }
+
 
         [TearDown]
         public void TearDown()

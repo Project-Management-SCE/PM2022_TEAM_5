@@ -47,11 +47,13 @@ pipeline {
 		            //            }
 	                //    }
                        stage('Coverage Test'){	                   					               
-	                        steps {                   			                               
+	                        steps {         
+                                withEnv(["HOME=${env.WORKSPACE}"]){          			                               
 	                              sh 'dotnet tool install -g coverlet.console'
-	                            //   sh 'coverlet ./WebApplication1/unitTest/bin/Debug/net5.0/unitTest.dll --target "dotnet" --targetargs "test --no-build" --exclude "[*]WebApplication1*"'
-                              sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore /p:CollectCoverage=true /p:Exclude="[*]WebApplication1*" /p:CoverletOutput="../coverage.json" /p:MergeWith="../coverage.json" /maxcpucount:1 '
-                              sh 'cat ./WebApplication1/unitTest/coverage.json'
+	                              sh 'coverlet ./WebApplication1/unitTest/bin/Debug/net5.0/unitTest.dll --target "dotnet" --targetargs "test --no-build" --exclude "[*]WebApplication1*"'
+                                }
+                            //   sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore /p:CollectCoverage=true /p:Exclude="[*]WebApplication1*" /p:CoverletOutput="../coverage.json" /p:MergeWith="../coverage.json" /maxcpucount:1 '
+                            //   sh 'cat ./WebApplication1/unitTest/coverage.json'
 		                       }
 	                   }
                        

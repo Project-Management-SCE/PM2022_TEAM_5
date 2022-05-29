@@ -13,8 +13,8 @@
                 <!-- Button trigger modal -->
                 <button class="btn d-flex col-md-4 col-lg-3 justify-content-center align-content-center shadow-none" data-bs-toggle="modal" data-bs-target="#@index.Key">
                     <figure class="favimgdiv rounded-circle flex-column justify-content-center align-content-center" style="text-align: center">
-                        <!-- <img src="@index.Value" class="img-thumbnail img-fluid" img-fluid> -->
-                        <!-- <figcaption>@index.Key</figcaption> -->
+                        <img src="@index.Value" class="img-thumbnail img-fluid" img-fluid>
+                        <figcaption>@index.Key</figcaption>
                     </figure>
                 </button>
             }
@@ -465,8 +465,8 @@
     async Task initializeLeagues()
     {
         PL = await GetLeague("8960");
-        /* SeriaA = await GetLeague("9299");
-        BundesLig = await GetLeague("9038");
+        SeriaA = await GetLeague("9299");
+        /*BundesLig = await GetLeague("9038");
         IsraelFootball = await GetLeague("9170");
         Laliga = await GetLeague("9080");
         IsraelBasketball = await GetLeague("11328");

@@ -51,7 +51,12 @@ pipeline {
 	                        steps {         
                                         			                               
 	                              sh 'dotnet tool install -g coverlet.console'
-	                              sh 'echo export PATH="$PATH:/tmp/DOTNET_CLI_HOME/.dotnet/tools"'
+	                              sh '''
+					cat << \EOF >> ~/.bash_profile
+					# Add .NET Core SDK tools
+					export PATH="$PATH:/tmp/DOTNET_CLI_HOME/.dotnet/tools"
+					EOF
+				      	'''
                                   sh 'coverlet ./WebApplication1/unitTest/bin/Debug/net5.0/unitTest.dll --target "dotnet" --targetargs "test --no-build" --exclude "[*]WebApplication1*"'
                                 
                             //   sh 'dotnet test ./WebApplication1/unitTest/unitTest.csproj --configuration Release --no-restore /p:CollectCoverage=true /p:Exclude="[*]WebApplication1*" /p:CoverletOutput="../coverage.json" /p:MergeWith="../coverage.json" /maxcpucount:1 '

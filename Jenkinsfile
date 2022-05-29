@@ -52,7 +52,7 @@ pipeline {
                                         			                               
 	                              sh 'dotnet tool install -g coverlet.console'
 	                              sh '''
-					cat << \EOF >> ~/.bash_profile
+					cat << \\EOF >> ~/.bash_profile
 					# Add .NET Core SDK tools
 					export PATH="$PATH:/tmp/DOTNET_CLI_HOME/.dotnet/tools"
 					EOF

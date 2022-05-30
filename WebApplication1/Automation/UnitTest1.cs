@@ -2,7 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
-using OpenQA.Selenium.Remote;
+// using OpenQA.Selenium.Remote;
 // using OpenQA.Selenium.Firefox;
 
 namespace Automation
@@ -34,15 +34,18 @@ namespace Automation
             string HomeTitle = string.Copy(_driver.Title);
             Assert.AreEqual(HomeTitle, title);
             Assert.NotNull(_driver.FindElements(By.XPath("//a[@href='#tennis']")));
+            _driver.FindElement(By.Id("Logout")).Click();
             Assert.AreEqual(_driver.Title, "- Sport Api S.C.E");
         }
         [Test]
-        public void TestSoccerApi()
+        public void TestTennisApi()
         {
             _driver.Navigate().GoToUrl(URL);
             _driver.FindElement(By.Id("Model_EmailOrUserName")).SendKeys(userName);
             _driver.FindElement(By.Id("Model_Password")).SendKeys(password);
-            _driver.FindElement(By.ClassName("btn-primary")).Click();            
+            _driver.FindElement(By.ClassName("btn-primary")).Click();
+            //Assert.NotNull(_driver.FindElement(By.XPath("//div[@class='match']")));
+            _driver.FindElement(By.XPath("//a[@href='#tennis']")).Click();
             Assert.NotNull(_driver.FindElement(By.XPath("//div[@class='match']")));
         }
 
@@ -61,7 +64,7 @@ namespace Automation
             Assert.IsEmpty(_driver.FindElements(By.Id("adminpanel")));
         }
 
-        //[Test]
+        [Test]
         public void TestVipUserLimit()
         {
             _driver.Navigate().GoToUrl(URL);
@@ -110,6 +113,7 @@ namespace Automation
             Assert.AreEqual(_driver.FindElement(By.TagName("marquee")).Text, "text from automation test");
             _driver.FindElement(By.Id("adminPanel")).Click();
             _driver.FindElement(By.XPath("//a[text()='Delete Users']")).Click();
+            System.Threading.Thread.Sleep(1000);
             _driver.FindElement(By.XPath("//button[@formaction='/DeleteUsers?email=automation@e.com']")).Click();
             Assert.AreEqual(_driver.FindElement(By.XPath("//strong[text()='User Deleted Successfuly']")).Text, "User Deleted Successfuly");
         }

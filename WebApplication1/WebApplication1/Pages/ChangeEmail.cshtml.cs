@@ -39,10 +39,10 @@ namespace WebApplication1.Pages
                     return Page();
                 }
 
-                if(!Model.UserName.Equals("") && Model.UserName!=null)
+                if(Model.UserName != null && !Model.UserName.Equals(""))
                     user.UserName = model.UserName;
 
-                if(!Model.NewEmail.Equals("") && Model.NewEmail != null)
+                if(Model.NewEmail != null && !Model.NewEmail.Equals(""))
                     user.Email = model.NewEmail;
 
                 var result = await userManager.UpdateAsync(user);

@@ -136,8 +136,8 @@ else
         user = await userManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
         isEdit = !(user.FavTeam != null || user.FavTeam != "");
         id = user.FavTeam;
-        string startDate = DateTime.UtcNow.AddDays(-8).ToString("yyyy-MM-dd");
-        string endDate = DateTime.UtcNow.AddDays(8).ToString("yyyy-MM-dd");
+        string startDate = DateTime.UtcNow.AddDays(-90).ToString("yyyy-MM-dd");
+        string endDate = DateTime.UtcNow.AddDays(40).ToString("yyyy-MM-dd");
         string uri = $"https://sportscore1.p.rapidapi.com/events/search?date_end={endDate}&date_start={startDate}&home_team_id={id}&page=1";
         Console.WriteLine(startDate);
         Console.WriteLine(endDate);

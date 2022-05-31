@@ -23,7 +23,7 @@ namespace TestProject1
         private FakeUserManager fakeUserManager;
         private ApplicationUser user;
         private HttpRequestMessage request;
-        private const string APIKEY = "8a3475d531msh8325b90d3ca74a8p1ea3bajsn155bed2c8839";
+        private const string APIKEY = "6bc60b06d1msh9458120f2562d86p1eca1cjsn276e3ae37840";
 
         [SetUp]
         public void Setup()

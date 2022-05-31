@@ -1,7 +1,6 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
 // using OpenQA.Selenium.Remote;
 // using OpenQA.Selenium.Firefox;
 
@@ -93,6 +92,7 @@ namespace Automation
             _driver.FindElement(By.XPath("//input[@name='Model.Password']")).SendKeys(password);
             _driver.FindElement(By.XPath("//input[@name='Model.ConfirmPassword']")).SendKeys(password);
             _driver.FindElement(By.XPath("//button[text()='Register']")).Click();
+            System.Threading.Thread.Sleep(2000);
             Assert.AreEqual("Home page - Sport Api S.C.E", _driver.Title);
         }
 
@@ -106,14 +106,15 @@ namespace Automation
             Assert.IsNotEmpty(_driver.FindElements(By.Id("adminPanel")));
             _driver.FindElement(By.Id("adminPanel")).Click();
             _driver.FindElement(By.XPath("//a[@href='/EditNews']")).Click();
+            System.Threading.Thread.Sleep(2000);
             _driver.FindElement(By.Id("Text")).SendKeys("text from automation test");
             _driver.FindElement(By.XPath("//button[text()='Edit News']")).Click();
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(2000);
             _driver.FindElement(By.XPath("//a[text()='Home']")).Click();
             Assert.AreEqual(_driver.FindElement(By.TagName("marquee")).Text, "text from automation test");
             _driver.FindElement(By.Id("adminPanel")).Click();
             _driver.FindElement(By.XPath("//a[text()='Delete Users']")).Click();
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(4000);
             _driver.FindElement(By.XPath("//button[@formaction='/DeleteUsers?email=automation@e.com']")).Click();
             Assert.AreEqual(_driver.FindElement(By.XPath("//strong[text()='User Deleted Successfuly']")).Text, "User Deleted Successfuly");
         }
@@ -122,10 +123,11 @@ namespace Automation
         public void TestFavouriteTeam()
         {
             _driver.Navigate().GoToUrl(URL);
-            _driver.FindElement(By.Id("Model_EmailOrUserName")).SendKeys(VipUser);
+            _driver.FindElement(By.Id("Model_EmailOrUserName")).SendKeys(userName);
             _driver.FindElement(By.Id("Model_Password")).SendKeys(password);
             _driver.FindElement(By.ClassName("btn-primary")).Click();
-            _driver.FindElement(By.XPath("//a[@href='/FavTeam']")).Click();
+            System.Threading.Thread.Sleep(5000);
+            _driver.FindElement(By.Id("favourite_team")).Click();
             System.Threading.Thread.Sleep(2000);
             _driver.FindElement(By.XPath("//button[text()='Edit Favourite Team']")).Click();
             System.Threading.Thread.Sleep(2000);
